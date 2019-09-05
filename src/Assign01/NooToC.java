@@ -23,8 +23,8 @@ public class NooToC {
         args[0] = "main.noo";
         args[1] = "main.c";
 
-        File noo        = new File(System.getProperty("user.dir") + "/" + args[0]);
-        File exportC    = new File(System.getProperty("user.dir") + "/" + args[1]);
+        File   noo           = new File(System.getProperty("user.dir") + "/" + args[0]);
+        File   exportC       = new File(System.getProperty("user.dir") + "/" + args[1]);
         String result_C_Code = "";
 
         try{
@@ -37,9 +37,7 @@ public class NooToC {
             String line;
 
             while((line = bufNooReader.readLine()) != null){
-
-                NooTree tree = new NooTree(line);
-
+                NooTree tree   = new NooTree(line);
                 result_C_Code += tree.ParseToC();
             }
 

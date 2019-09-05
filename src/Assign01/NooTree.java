@@ -1,6 +1,6 @@
 package Assign01;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class NooTree {
 
@@ -19,7 +19,7 @@ public class NooTree {
         nodeCount = nodeArr.length;
         root = new NooNode(nodeArr[0].length());
 
-        TreeIterator iter = new TreeIterator(root, null, 0);
+        TreeIterator iter = new TreeIterator(root);
 
         // nodeArr의 갯수 만큼 반복하면서 트리를 생성
         for(int nodeArrIndex = 1; nodeArrIndex < nodeArr.length; nodeArrIndex++){
@@ -30,28 +30,29 @@ public class NooTree {
     TreeIterator AddNode(TreeIterator _iter, NooNode _newNode){
         switch (_iter.iter.degree){
             case 1:
+                _iter.iter.AddChild(_newNode);
+                _iter.iter = _newNode;
+                break;
             case 2:
                 _iter.iter.AddChild(_newNode);
                 _iter.iter = _newNode;
                 break;
             case 3:
-                if(_iter.returnNode != null) {
-                    _iter.returnNode.AddChild(_newNode);
-                    _iter.ChildNum++;
+                if(_iter.retNodeQue.peek() != null) {
+                    _iter.retNodeQue.poll().AddChild(_newNode);
                     _iter.iter = _newNode;
                 }
                 break;
             case 4:
                 _iter.iter.AddChild(_newNode);
-                int b = _newNode.degree;
-                int a = _iter.iter.childs.size();
-                _iter.returnNode = _iter.iter;
+                _iter.retNodeQue.add(_iter.iter);
                 _iter.iter = _newNode;
-
                 break;
             case 5:
                 _iter.iter.AddChild(_newNode);
-                _iter.returnNode = _iter.iter;
+                // 두 번 리턴하므로 두 번 push 한다
+                _iter.retNodeQue.add(_iter.iter);
+                _iter.retNodeQue.add(_iter.iter);
                 _iter.iter = _newNode;
                 break;
             default:
@@ -63,13 +64,12 @@ public class NooTree {
 
     class TreeIterator {
         NooNode iter;
-        NooNode returnNode;
-        int ChildNum;
+        // 중첩된 if문 등의 case를 고려하기 위해서 Map<int, NooNode>의 변수가 필요
+        // Depth에 해당하는 돌아갈 노드를 갖고 있다.
+        Queue<NooNode> retNodeQue = new LinkedList<NooNode>();
 
-        TreeIterator(NooNode _iter, NooNode _returnNode, int _ChildNum){
-            iter =_iter;
-            returnNode = _returnNode;
-            ChildNum = _ChildNum;
+        TreeIterator(NooNode _iter){
+            iter        =       _iter;
         }
     }
 

@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/Assign01/NooToC.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/Assign01/NooToC.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/Assign01/NooTree$TreeIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/Assign01/NooTree$TreeIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/Assign01/NooTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/Assign01/NooTree.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assign01/NooNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assign01/NooNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Assign01/NooToC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assign01/NooToC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Assign01/NooTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assign01/NooTree.java" afterDir="false" />
     </list>
@@ -45,6 +46,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
@@ -95,6 +97,7 @@
       <workItem from="1567656102835" duration="2302000" />
       <workItem from="1567660886176" duration="1600000" />
       <workItem from="1567666392138" duration="3064000" />
+      <workItem from="1567675391570" duration="3937000" />
     </task>
     <servers />
   </component>

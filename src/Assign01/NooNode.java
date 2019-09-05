@@ -36,11 +36,11 @@ public class NooNode {
             case 5:
                 String res5 = "";
                 res5 += childs.get(0).PrintCstr();
-                res5 += "   t1 = r;\n    if(t1 != 0){\n";
+                res5 += "    t1 = r;\n    if(t1 != 0){\n";
                 res5 += childs.get(1).PrintCstr();
-                res5 += "   }\n    else{\n";
+                res5 += "    }\n    else{\n";
                 res5 += childs.get(2).PrintCstr();
-                res5 += "   }\n";
+                res5 += "    }\n";
                 return res5;
             default:
                 return "Wrong Degree: " + degree;
