@@ -37,7 +37,6 @@ public class NooToC {
             String line;
 
             while((line = bufNooReader.readLine()) != null){
-                int doubleQuoteNumber = 0;
 
                 NooTree tree = new NooTree(line);
 

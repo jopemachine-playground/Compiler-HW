@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9483250e-d898-4db1-a8c6-c968ba9c1421" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Assign01/NooNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Assign01/NooTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assign01/main.noo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assign01/nooToC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assign01/NooToC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.noo" beforeDir="false" afterPath="$PROJECT_DIR$/main.noo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/Assign01/NooNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/Assign01/NooNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/Assign01/NooToC.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/Assign01/NooToC.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/Assign01/NooTree$TreeIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/Assign01/NooTree$TreeIterator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/Assign01/NooTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/Assign01/NooTree.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assign01/NooToC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assign01/NooToC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assign01/NooTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assign01/NooTree.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,6 +92,9 @@
       <workItem from="1567590249491" duration="2293000" />
       <workItem from="1567593513049" duration="3737000" />
       <workItem from="1567641131835" duration="9495000" />
+      <workItem from="1567656102835" duration="2302000" />
+      <workItem from="1567660886176" duration="1600000" />
+      <workItem from="1567666392138" duration="3064000" />
     </task>
     <servers />
   </component>
@@ -108,19 +115,15 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Assign01/NooTree.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="_iter" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Compiler_HW$NooToC.ic" NAME="NooToC Coverage Results" MODIFIED="1567661751682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Assign01.*</FILTER>
+    </SUITE>
   </component>
 </project>

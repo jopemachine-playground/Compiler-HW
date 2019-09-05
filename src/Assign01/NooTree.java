@@ -35,22 +35,24 @@ public class NooTree {
                 _iter.iter = _newNode;
                 break;
             case 3:
-                _iter.iter.AddChild(_newNode);
                 if(_iter.returnNode != null) {
-                    _iter.iter = _iter.returnNode;
+                    _iter.returnNode.AddChild(_newNode);
                     _iter.ChildNum++;
+                    _iter.iter = _newNode;
                 }
                 break;
             case 4:
-//                _iter.iter.childs.get(_iter.ChildNum)
-//                int cs = _iter.iter.childs.size();
-//                _iter.iter.childs.get(cs).AddChild(_newNode);
-                 _iter.returnNode = _iter.iter;
+                _iter.iter.AddChild(_newNode);
+                int b = _newNode.degree;
+                int a = _iter.iter.childs.size();
+                _iter.returnNode = _iter.iter;
+                _iter.iter = _newNode;
 
                 break;
             case 5:
-//                _iter.iter.AddChild(_newNode);
+                _iter.iter.AddChild(_newNode);
                 _iter.returnNode = _iter.iter;
+                _iter.iter = _newNode;
                 break;
             default:
                 break;
