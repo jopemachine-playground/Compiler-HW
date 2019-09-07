@@ -1,4 +1,4 @@
-package Assign01;
+package cnu.compiler19.hw1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +19,7 @@ public class NooNode {
         childs.add(_child);
     }
 
+    // 트리를 재귀적으로 순회하며 C 코드로 변환
     String PrintCstr(){
         switch (degree){
             case 1:

@@ -1,6 +1,9 @@
-package Assign01;
+package cnu.compiler19.hw1;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 public class NooTree {
 
@@ -30,16 +33,13 @@ public class NooTree {
     TreeIterator AddNode(TreeIterator _iter, NooNode _newNode){
         switch (_iter.iter.degree){
             case 1:
-                _iter.iter.AddChild(_newNode);
-                _iter.iter = _newNode;
-                break;
             case 2:
                 _iter.iter.AddChild(_newNode);
                 _iter.iter = _newNode;
                 break;
             case 3:
                 if(_iter.retNodeQue.peek() != null) {
-                    _iter.retNodeQue.poll().AddChild(_newNode);
+                    _iter.retNodeQue.pop().AddChild(_newNode);
                     _iter.iter = _newNode;
                 }
                 break;
@@ -66,7 +66,7 @@ public class NooTree {
         NooNode iter;
         // 중첩된 if문 등의 case를 고려하기 위해서 Map<int, NooNode>의 변수가 필요
         // Depth에 해당하는 돌아갈 노드를 갖고 있다.
-        Queue<NooNode> retNodeQue = new LinkedList<NooNode>();
+        Stack<NooNode> retNodeQue = new Stack<NooNode>();
 
         TreeIterator(NooNode _iter){
             iter        =       _iter;
