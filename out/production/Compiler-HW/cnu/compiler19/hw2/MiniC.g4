@@ -17,58 +17,58 @@ var_decl	:  type_spec IDENT ';' {
         | type_spec IDENT '[' ']' ';' {
     System.out.println("201502085 Rule 2-2");
 }
-
 		| type_spec IDENT '=' LITERAL ';'
-		| type_spec IDENT '[' LITERAL ']' ';'	;
-type_spec	: VOID				
+		| type_spec IDENT '[' LITERAL ']';
+
+type_spec	: VOID
 		| INT				;
 fun_decl	: type_spec IDENT '(' params ')' compound_stmt ;
-params		: param (',' param)*		
-		| VOID				
+params		: param (',' param)*
+		| VOID
 		|				;
-param		: type_spec IDENT		
+param		: type_spec IDENT
 		| type_spec IDENT '[' ']'	;
-stmt		: expr_stmt			
-		| compound_stmt			
-		| if_stmt			
-		| while_stmt			
+stmt		: expr_stmt
+		| compound_stmt
+		| if_stmt
+		| while_stmt
 		| return_stmt			;
 expr_stmt	: expr ';'			;
 while_stmt	: WHILE '(' expr ')' stmt	;
 compound_stmt: '{' local_decl* stmt* '}'	;
 local_decl	: type_spec IDENT ';'
-		| type_spec IDENT '=' LITERAL ';'	
+		| type_spec IDENT '=' LITERAL ';'
 		| type_spec IDENT '[' LITERAL ']' ';'	;
-if_stmt		: IF '(' expr ')' stmt		
+if_stmt		: IF '(' expr ')' stmt
 		| IF '(' expr ')' stmt ELSE stmt 		;
-return_stmt	: RETURN ';'			
+return_stmt	: RETURN ';'
 		| RETURN expr ';'				;
-expr	:  LITERAL				
-	| '(' expr ')'				 
-	| IDENT				 
-	| IDENT '[' expr ']'			 
-	| IDENT '(' args ')'			
-	| '-' expr				 
-	| '+' expr				 
-	| '--' expr				 
-	| '++' expr				 
-	| expr '*' expr				 
-	| expr '/' expr				 
-	| expr '%' expr				 
-	| expr '+' expr				 
-	| expr '-' expr				 
-	| expr EQ expr				
-	| expr NE expr				 
-	| expr LE expr				 
-	| expr '<' expr				 
-	| expr GE expr				 
-	| expr '>' expr				 
-	| '!' expr					 
-	| expr AND expr				 
-	| expr OR expr				
-	| IDENT '=' expr			
+expr	:  LITERAL
+	| '(' expr ')'
+	| IDENT
+	| IDENT '[' expr ']'
+	| IDENT '(' args ')'
+	| '-' expr
+	| '+' expr
+	| '--' expr
+	| '++' expr
+	| expr '*' expr
+	| expr '/' expr
+	| expr '%' expr
+	| expr '+' expr
+	| expr '-' expr
+	| expr EQ expr
+	| expr NE expr
+	| expr LE expr
+	| expr '<' expr
+	| expr GE expr
+	| expr '>' expr
+	| '!' expr
+	| expr AND expr
+	| expr OR expr
+	| IDENT '=' expr
 	| IDENT '[' expr ']' '=' expr		;
-args	: expr (',' expr)*			 
+args	: expr (',' expr)*
 	|					 ;
 
 VOID: 'void';
@@ -112,5 +112,6 @@ WS  :   (   ' '
         |   '\r'
         |   '\n'
         )+
-	-> channel(HIDDEN)	 
+	-> channel(HIDDEN)
     ;
+

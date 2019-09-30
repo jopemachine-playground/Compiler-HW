@@ -2,23 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9483250e-d898-4db1-a8c6-c968ba9c1421" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/antlr4_4_7_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/antlr-4.7.1-complete.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniC.interp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniC.tokens" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniCBaseListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniCBaseVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniCLexer.interp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniCLexer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniCLexer.tokens" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniCListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniCParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniCVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw2/TestMiniC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler-HW.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler-HW.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw1/NooToCTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw1/NooToCTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw2/MiniC.interp" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw2/MiniC.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw2/MiniCLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw2/MiniCLexer.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw2/MiniCParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw2/MiniCParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniC.g4" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniC.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniC.interp" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniC.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCLexer.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$ArgsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$ArgsContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Compound_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Compound_stmtContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$ExprContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$ExprContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Expr_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Expr_stmtContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Fun_declContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Fun_declContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$If_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$If_stmtContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Local_declContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Local_declContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$ParamContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$ParamContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$ParamsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$ParamsContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Return_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Return_stmtContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$StmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$StmtContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Type_specContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Type_specContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$While_stmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$While_stmtContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniC.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniC.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniC.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniC.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniCLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniCLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniCParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniCParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,12 +71,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Compiler-HW\lib" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Compiler-HW\src\cnu\compiler19\hw2" />
       <recent name="C:\Compiler-HW\src\cnu\compiler19\hw1" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Compiler-HW\lib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -158,6 +168,14 @@
       <workItem from="1569562077942" duration="221000" />
       <workItem from="1569562458516" duration="267000" />
       <workItem from="1569562740005" duration="2076000" />
+      <workItem from="1569575222778" duration="669000" />
+      <workItem from="1569579851268" duration="8000" />
+      <workItem from="1569635148855" duration="1579000" />
+      <workItem from="1569636752126" duration="294000" />
+      <workItem from="1569637066793" duration="187000" />
+      <workItem from="1569801545269" duration="531000" />
+      <workItem from="1569802620465" duration="462000" />
+      <workItem from="1569808131705" duration="559000" />
     </task>
     <servers />
   </component>
