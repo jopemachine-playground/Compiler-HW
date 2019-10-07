@@ -1,4 +1,3 @@
-int main() {
-
-    return 1;
+int main(){
+     if (x>0 ) { x=x +1;}
 }
