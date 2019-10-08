@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9483250e-d898-4db1-a8c6-c968ba9c1421" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniC.g4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniC.interp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniC.tokens" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCBaseListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCBaseVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCLexer.interp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCLexer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCLexer.tokens" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCPrintListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/Translator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test1.noo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/[CP01]201502085_이규봉_hw02.hwp" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/[CP01]201502085_이규봉_hw02.hwp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCPrintListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCPrintListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCPrintListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCPrintListener.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -181,6 +169,8 @@
       <workItem from="1569562740005" duration="2076000" />
       <workItem from="1570447550425" duration="568000" />
       <workItem from="1570448299302" duration="9731000" />
+      <workItem from="1570531118996" duration="3680000" />
+      <workItem from="1570541866182" duration="493000" />
     </task>
     <servers />
   </component>
@@ -201,20 +191,6 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCPrintListener.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCPrintListener.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="_iter" />
