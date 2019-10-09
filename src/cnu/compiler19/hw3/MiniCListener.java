@@ -3,7 +3,6 @@ package cnu.compiler19.hw3;
 
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
-
 /**
  * This interface defines a complete listener for a parse tree produced by
  * {@link MiniCParser}.

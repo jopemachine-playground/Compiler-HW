@@ -1,7 +1,7 @@
 grammar MiniC;
 
 
-@header { 
+@header {
 package generated;
 }
 program	: decl+			;

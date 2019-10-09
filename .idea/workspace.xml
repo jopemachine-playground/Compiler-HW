@@ -2,11 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9483250e-d898-4db1-a8c6-c968ba9c1421" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/[CP01]201502085_이규봉_hw02.hwp" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/[CP01]201502085_이규봉_hw02.hwp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCBaseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCBaseVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniC.g4" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniC.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCPrintListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCPrintListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniC.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniC.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCBaseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCBaseVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCPrintListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCPrintListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/Translator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/Translator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test2.c" beforeDir="false" afterPath="$PROJECT_DIR$/test2.c" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +51,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/cnu/compiler19/hw3" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -48,14 +62,10 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Compiler-HW\src\cnu\compiler19\hw3" />
-      <recent name="C:\Compiler-HW\lib" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Compiler-HW\src\cnu\compiler19\hw3" />
       <recent name="C:\Compiler-HW" />
       <recent name="C:\Compiler-HW\src\cnu\compiler19" />
-      <recent name="C:\Compiler-HW\src\cnu\compiler19\hw3" />
       <recent name="C:\Compiler-HW\src\cnu\compiler19\hw2" />
       <recent name="C:\Compiler-HW\src\cnu\compiler19\hw1" />
     </key>
@@ -76,19 +86,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Translator">
-    <configuration name="NooToC" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Assign01.NooToC" />
-      <module name="Compiler-HW" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Assign01.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="NooToCTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cnu.compiler19.hw1.NooToCTest" />
       <module name="Compiler-HW" />
@@ -129,7 +126,6 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.NooToC" />
       <item itemvalue="Application.NooToCTest" />
       <item itemvalue="Application.TestMiniC" />
       <item itemvalue="Application.Translator" />
@@ -139,7 +135,6 @@
         <item itemvalue="Application.Translator" />
         <item itemvalue="Application.TestMiniC" />
         <item itemvalue="Application.NooToCTest" />
-        <item itemvalue="Application.NooToC" />
       </list>
     </recent_temporary>
   </component>
@@ -171,6 +166,8 @@
       <workItem from="1570448299302" duration="9731000" />
       <workItem from="1570531118996" duration="3680000" />
       <workItem from="1570541866182" duration="493000" />
+      <workItem from="1570594820583" duration="1422000" />
+      <workItem from="1570596258726" duration="11012000" />
     </task>
     <servers />
   </component>
@@ -194,6 +191,8 @@
     <watches-manager>
       <configuration name="Application">
         <watch expression="_iter" />
+        <watch expression="content" />
+        <watch expression="sss" />
       </configuration>
     </watches-manager>
   </component>
