@@ -7,16 +7,19 @@ public class MiniCPrintListener extends MiniCBaseListener {
 
     ParseTreeProperty<String> newTexts = new ParseTreeProperty<>();
 
+    // *** Description *** : exitVar_decl
     boolean isArrayDecl(MiniCParser.Var_declContext ctx){
         if(ctx.getChildCount() < 5) return false;
         return ctx.getChild(2).getText().equals("[") && ctx.getChild(4).getText().equals("]");
     }
 
+    // *** Description *** : exitVar_decl
     boolean isInitAndAssignStmt(MiniCParser.Var_declContext ctx){
         if (ctx.getChildCount() < 5) return false;
         return ctx.getChild(2).getText().equals("=");
     }
 
+    // *** Description *** : exitVar_decl
     boolean isLocalVariableDecl(MiniCParser.Var_declContext ctx){
         return ctx.getChildCount() == 3;
     }
@@ -31,14 +34,6 @@ public class MiniCPrintListener extends MiniCBaseListener {
         // ** ctx.getChild(4) : ] or null or ;
         // ** ctx.getChild(5) : ;
 
-        // *** Debugging ***
-        // String s = ctx.getText();
-        // String s1 = ctx.getChild(0).getText();
-        // String s2 = ctx.getChild(1).getText();
-        // String s3 = ctx.getChild(2).getText();
-        // String s4 = ctx.getChild(3).getText();
-        // String s5 = ctx.getChild(4).getText();
-
         if(isInitAndAssignStmt(ctx)){
             newTexts.put(ctx, ctx.getChild(0).getText() + " " + ctx.getChild(1).getText() + " = " + ctx.getChild(3).getText() + ";");
         }
@@ -50,17 +45,19 @@ public class MiniCPrintListener extends MiniCBaseListener {
         }
     }
 
-
+    // *** Description *** : exitLocal_decl
     boolean isArrayDecl(MiniCParser.Local_declContext ctx){
         if(ctx.getChildCount() < 5) return false;
         return ctx.getChild(2).getText().equals("[") && ctx.getChild(4).getText().equals("]");
     }
 
+    // *** Description *** : exitLocal_decl
     boolean isInitAndAssignStmt(MiniCParser.Local_declContext ctx){
        if (ctx.getChildCount() < 5) return false;
        return ctx.getChild(2).getText().equals("=");
     }
 
+    // *** Description *** : exitLocal_decl
     boolean isLocalVariableDecl(MiniCParser.Local_declContext ctx){
        return ctx.getChildCount() == 3;
     }
@@ -75,14 +72,6 @@ public class MiniCPrintListener extends MiniCBaseListener {
         // ** ctx.getChild(4) : ] or null or ;
         // ** ctx.getChild(5) : ;
 
-        // *** Debugging ***
-        // String s = ctx.getText();
-        // String s1 = ctx.getChild(0).getText();
-        // String s2 = ctx.getChild(1).getText();
-        // String s3 = ctx.getChild(2).getText();
-        // String s4 = ctx.getChild(3).getText();
-        // String s5 = ctx.getChild(4).getText();
-
         if(isInitAndAssignStmt(ctx)){
             newTexts.put(ctx, ctx.getChild(0).getText() + " " + ctx.getChild(1).getText() + " = " + ctx.getChild(3).getText() + ";");
         }
@@ -94,122 +83,151 @@ public class MiniCPrintListener extends MiniCBaseListener {
         }
     }
 
+
+    // *** Description *** : enterExpr, exitExpr
     boolean isUnaryOperation(MiniCParser.ExprContext ctx){
         return ctx.getChildCount() == 2 &&
                 ctx.getChild(1) != ctx.expr();
     }
 
+    // *** Description *** : enterExpr, exitExpr
     boolean isBinaryOperation(MiniCParser.ExprContext ctx){
         return ctx.getChildCount() == 3 &&
                 ctx.getChild(1) != ctx.expr();
     }
 
+    // *** Description *** : enterExpr, exitExpr
     boolean isFunctionCall(MiniCParser.ExprContext ctx) {
         if (ctx.getChildCount() < 3) return false;
         return ctx.getChild(1).getText().equals("(") &&
                 ctx.getChild(2) != ctx.expr();
     }
 
+    // *** Description *** : enterExpr, exitExpr
+    boolean hasParentheses(MiniCParser.ExprContext ctx){
+        if (ctx.getChildCount() < 2) return false;
+        return ctx.getChild(0).getText().equals("(");
+    }
+
+    // *** Description *** : enterExpr, exitExpr
+    boolean isArrayAssignStmt(MiniCParser.ExprContext ctx){
+        if (ctx.getChildCount() < 4) return false;
+        return ctx.getChild(1).getText().equals("[") &&
+                ctx.getChild(4).getText().equals("=");
+    }
 
     @Override
     public void enterExpr(MiniCParser.ExprContext ctx) {
-        String s1 = null, s2 = null, op = null;
+        // *** Description ***
+        // ** ctx.getChild(0) : UnaryOperator or IDENT or ( or FunctionName
+        // ** ctx.getChild(1) : BinaryOperator or (
+        // ** ctx.getChild(2) : IDENT(args)
+        // ** ctx.getChild(3) : ) or null
 
        if(isBinaryOperation(ctx)){
-            s1 = ctx.getChild(0).getText();
-            op = ctx.getChild(1).getText();
-            s2 = ctx.getChild(2).getText();
-
-            // *** Debugging ***
-            // String s1_d, s2_d, s3_d;
-            // s1_d = ctx.getChild(0).getText();
-            // s2_d = ctx.getChild(1).getText();
-            // s3_d = ctx.getChild(2).getText();
-
             newTexts.put(ctx.getChild(0), ctx.getChild(0).getText());
             newTexts.put(ctx.getChild(2), ctx.getChild(2).getText());
        }
         else if(isUnaryOperation(ctx)){
-            op = ctx.getChild(0).getText();
-            s1 = ctx.getChild(1).getText();
-
             newTexts.put(ctx.getChild(0), ctx.getChild(0).getText());
             newTexts.put(ctx.getChild(1), ctx.getChild(1).getText());
+       }
+        else if(isArrayAssignStmt(ctx)){
+            newTexts.put(ctx.getChild(2), ctx.getChild(2).getText());
+            newTexts.put(ctx.getChild(5), ctx.getChild(5).getText());
        }
     }
 
     @Override
     public void exitExpr(MiniCParser.ExprContext ctx) {
 
-        String s1 = null, s2 = null, op = null;
+        // *** Description ***
+        // ** ctx.getChild(0) : UnaryOperator or IDENT or (
+        // ** ctx.getChild(1) : BinaryOperator or (
+        // ** ctx.getChild(2) : IDENT(args)
+        // ** ctx.getChild(3) : ) or null
+
+        if(hasParentheses(ctx)){
+            newTexts.put(ctx, "(" + newTexts.get(ctx.getChild(1)) + ")");
+            return;
+        }
 
         if(isBinaryOperation(ctx)){
-            s1 = newTexts.get(ctx.getChild(0));
-            op = ctx.getChild(1).getText();
-            s2 = newTexts.get(ctx.getChild(2));
-
-            // *** Debugging ***
-            // String s1_d, s2_d, s3_d;
-            // s1_d = ctx.getChild(0).getText();
-            // s2_d = ctx.getChild(1).getText();
-            // s3_d = ctx.getChild(2).getText();
-
-            newTexts.put(ctx, s1 + " " + op + " " + s2);
+            newTexts.put(ctx, newTexts.get(ctx.getChild(0)) + " " + ctx.getChild(1).getText() + " " + newTexts.get(ctx.getChild(2)));
         }
         else if(isUnaryOperation(ctx)){
-            op = newTexts.get(ctx.getChild(0));
-            s1 = newTexts.get(ctx.getChild(1));
-
-            newTexts.put(ctx, op + s1);
+            newTexts.put(ctx, ctx.getChild(0).getText() + newTexts.get(ctx.getChild(1)));
         }
         else if(isFunctionCall(ctx)){
-
-            String args = newTexts.get(ctx.getChild(2));
-
-            newTexts.put(ctx, ctx.getChild(0).getText() + args);
+            newTexts.put(ctx, ctx.getChild(0).getText() + newTexts.get(ctx.getChild(2)));
         }
+        else if(isArrayAssignStmt(ctx)){
+            newTexts.put(ctx, ctx.getChild(0).getText() + "[" + newTexts.get(ctx.getChild(2)) + "] = " + newTexts.get(ctx.getChild(5)));
+        }
+
     }
+
+    @Override
+    public void enterExpr_stmt(MiniCParser.Expr_stmtContext ctx) {
+        // *** Description ***
+        // ** ctx.getChild(0) : expr
+        // ** ctx.getChild(1) : ;
+
+        newTexts.put(ctx.getChild(0), ctx.getChild(0).getText());
+    }
+
     @Override
     public void exitExpr_stmt(MiniCParser.Expr_stmtContext ctx) {
+        // *** Description ***
+        // ** ctx.getChild(0) : expr
+        // ** ctx.getChild(1) : ;
 
-        String a1 = ctx.getChild(0).getText();
-        String a2 = ctx.getChild(1).getText();
-
-        String s = ctx.getChild(0).getText();
-
-        String ss = ctx.getText();
         newTexts.put(ctx, newTexts.get(ctx.getChild(0)) + ";");
     }
 
-
-    @Override
-    public void exitStmt(MiniCParser.StmtContext ctx) {
-//        System.out.println(ctx.getText());
-
-        // System.out.println(newTexts.get(ctx.getChild(0)));
+    // *** Description *** : exitParam
+    boolean hasArrayOperator(MiniCParser.ParamContext ctx){
+        if (ctx.getChildCount() < 2) return false;
+        return ctx.getChild(2).getText().equals("[");
     }
 
+    @Override
+    public void exitParam(MiniCParser.ParamContext ctx) {
+        if(hasArrayOperator(ctx)){
+            newTexts.put(ctx, ctx.getChild(0).getText() + " " + ctx.getChild(1).getText() + "[]");
+        }
+        else {
+            newTexts.put(ctx, ctx.getChild(0).getText() + " " + ctx.getChild(1).getText());
+        }
+    }
+
+    @Override
+    public void exitParams(MiniCParser.ParamsContext ctx) {
+
+    }
+
+    // *** Description *** : exitCompound_stmt
     boolean isExprStmt(MiniCParser.Compound_stmtContext ctx, int index){
         return newTexts.get(ctx.getChild(index).getChild(0)) != null;
     }
 
+    // *** Description *** : exitCompound_stmt
     boolean isNormalStmt(MiniCParser.Compound_stmtContext ctx, int index){
-//        String ss = ctx.getChild(index).getChild(0).getText();
         return newTexts.get(ctx.getChild(index).getChild(0)) == null;
     }
 
     @Override
     public void exitCompound_stmt(MiniCParser.Compound_stmtContext ctx) {
-//        System.out.println(ctx.getChildCount());
+        // *** Description ***
+        // ** ctx.getChild(0) : {
+        // ** ctx.getChild(1) : statement or local_decl
+        // ** ctx.getChild(...) : statement or local_decl
+        // ** ctx.getChild(stmtNum) : statement or local_decl
+        // ** ctx.getChild(stmtNum + 1) : }
+
         int nodeNum = ctx.getChildCount();
         int stmtNum = nodeNum - 2;
 
-        String a1 = ctx.getChild(0).getText();
-        String a2 = ctx.getChild(1).getText();
-        String a3 = ctx.getChild(2).getText();
-//        String a4 = ctx.getChild(3).getText();
-        String s = ctx.getText();
-        String sss;
         StringBuilder strBuilder = new StringBuilder();
 
         for (int i = 0; i < stmtNum; i++){
@@ -233,39 +251,100 @@ public class MiniCPrintListener extends MiniCBaseListener {
         newTexts.put(ctx, "{\n" + strBuilder.toString() + "}\n");
     }
 
+    // *** Description *** : exitIf_stmt
+    boolean hasElseStmt(MiniCParser.If_stmtContext ctx){
+        return ctx.getChildCount() > 5;
+    }
+
+    @Override
+    public void enterIf_stmt(MiniCParser.If_stmtContext ctx) {
+        // *** Description ***
+        // ** ctx.getChild(0) : if
+        // ** ctx.getChild(1) : (
+        // ** ctx.getChild(2) : expr
+        // ** ctx.getChild(3) : )
+        // ** ctx.getChild(4) : stmt
+        // ** ctx.getChild(5) : else or null
+        // ** ctx.getChild(6) : stmt or null
+        newTexts.put(ctx.getChild(2), ctx.getChild(2).getText());
+
+    }
+
     @Override
     public void exitIf_stmt(MiniCParser.If_stmtContext ctx) {
-        String s  = ctx.getText();
-        String a1 = ctx.getChild(0).getText();
-        String a2 = ctx.getChild(1).getText();
-        String a3 = ctx.getChild(2).getText();
-        String a4 = ctx.getChild(3).getText();
-        String a5 = ctx.getChild(4).getText();
+        // *** Description ***
+        // ** ctx.getChild(0) : if
+        // ** ctx.getChild(1) : (
+        // ** ctx.getChild(2) : expr
+        // ** ctx.getChild(3) : )
+        // ** ctx.getChild(4) : stmt
+        // ** ctx.getChild(5) : else or null
+        // ** ctx.getChild(6) : stmt or null
 
-        newTexts.put(ctx, "if (" + newTexts.get(ctx.getChild(2)) + ")\n" + newTexts.get(ctx.getChild(4).getChild(0)));
+        if(hasElseStmt(ctx)){
+            newTexts.put(ctx, "if (" + newTexts.get(ctx.getChild(2)) + ") " + newTexts.get(ctx.getChild(4).getChild(0)) + "else " + newTexts.get(ctx.getChild(6).getChild(0)));
+        }
+        else {
+            newTexts.put(ctx, "if (" + newTexts.get(ctx.getChild(2)) + ") " + newTexts.get(ctx.getChild(4).getChild(0)));
+        }
+    }
+
+    @Override
+    public void enterWhile_stmt(MiniCParser.While_stmtContext ctx) {
+        // *** Description ***
+        // ** ctx.getChild(0) : while
+        // ** ctx.getChild(1) : (
+        // ** ctx.getChild(2) : expr
+        // ** ctx.getChild(3) : )
+        // ** ctx.getChild(4) : stmt
+
+        newTexts.put(ctx.getChild(2), ctx.getChild(2).getText());
+
     }
 
     @Override
     public void exitWhile_stmt(MiniCParser.While_stmtContext ctx) {
+        // *** Description ***
+        // ** ctx.getChild(0) : while
+        // ** ctx.getChild(1) : (
+        // ** ctx.getChild(2) : expr
+        // ** ctx.getChild(3) : )
+        // ** ctx.getChild(4) : stmt
+
         newTexts.put(ctx, "while (" + newTexts.get(ctx.getChild(2)) + ")\n" + newTexts.get(ctx.getChild(4).getChild(0)));
     }
 
     @Override
     public void exitFun_decl(MiniCParser.Fun_declContext ctx) {
-        String s  = ctx.getText();
-        String a1 = ctx.getChild(0).getText();
-        String a2 = ctx.getChild(1).getText();
-        String a3 = ctx.getChild(2).getText();
-        String a4 = ctx.getChild(3).getText();
-        String a5 = ctx.getChild(4).getText();
-        String a6 = ctx.getChild(5).getText();
+        // *** Description ***
+        // ** ctx.getChild(0) : type_decl
+        // ** ctx.getChild(1) : IDENT(FunctionName)
+        // ** ctx.getChild(2) : (
+        // ** ctx.getChild(3) : params
+        // ** ctx.getChild(4) : )
+        // ** ctx.getChild(5) : compound_stmts
 
         newTexts.put(ctx, ctx.getChild(0).getText() + " " + ctx.getChild(1).getText() + "(" + ctx.getChild(3).getText() + ")\n" + newTexts.get(ctx.getChild(5)));
 
     }
 
     @Override
+    public void enterArgs(MiniCParser.ArgsContext ctx) {
+        // *** Description ***
+        // ** ctx.getChild(2k) : ,
+        // ** ctx.getChild(2k - 1) : params
+
+        for (int i = 0; i < ctx.getChildCount(); i++){
+            if (i % 2 == 1) continue;
+            else newTexts.put(ctx.getChild(i), ctx.getChild(i).getText());
+        }
+    }
+
+    @Override
     public void exitArgs(MiniCParser.ArgsContext ctx) {
+        // *** Description ***
+        // ** ctx.getChild(2k) : ,
+        // ** ctx.getChild(2k - 1) : params
 
         StringBuilder strBuilder = new StringBuilder();
 
@@ -279,8 +358,45 @@ public class MiniCPrintListener extends MiniCBaseListener {
         newTexts.put(ctx, strBuilder.toString());
     }
 
+    // *** Description *** : enterReturn_stmt, exitReturn_stmt
+    boolean hasExpr(MiniCParser.Return_stmtContext ctx){
+        return !ctx.getChild(1).getText().equals(";");
+    }
+
+    @Override
+    public void enterReturn_stmt(MiniCParser.Return_stmtContext ctx) {
+        // *** Description ***
+        // ** ctx.getChild(0) : return
+        // ** ctx.getChild(1) : ; or expr
+        // ** ctx.getChild(2) : ; or null
+
+        if(hasExpr(ctx)){
+            newTexts.put(ctx.getChild(1), ctx.getChild(1).getText());
+        }
+    }
+
+    @Override
+    public void exitReturn_stmt(MiniCParser.Return_stmtContext ctx) {
+        // *** Description ***
+        // ** ctx.getChild(0) : return
+        // ** ctx.getChild(1) : ; or expr
+        // ** ctx.getChild(2) : ; or null
+
+        if (hasExpr(ctx)){
+            String s = ctx.getChild(1).getText();
+            newTexts.put(ctx, "return " + newTexts.get(ctx.getChild(1)) + ";");
+        }
+        else{
+            newTexts.put(ctx, "return;");
+        }
+
+    }
+
     @Override
     public void exitProgram(MiniCParser.ProgramContext ctx) {
+        // *** Description ***
+        // print all string of newTexts
+
         for (int i = 0; i < ctx.getChildCount(); i++){
             System.out.println(newTexts.get(ctx.getChild(i).getChild(0)));
         }

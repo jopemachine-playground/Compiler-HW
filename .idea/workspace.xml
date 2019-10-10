@@ -3,23 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9483250e-d898-4db1-a8c6-c968ba9c1421" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCBaseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCBaseVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCLexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw3/MiniCVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniC.g4" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniC.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCPrintListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCPrintListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniC.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniC.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCBaseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCBaseVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCLexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCPrintListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCPrintListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/Translator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/Translator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test2.c" beforeDir="false" afterPath="$PROJECT_DIR$/test2.c" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -168,6 +153,7 @@
       <workItem from="1570541866182" duration="493000" />
       <workItem from="1570594820583" duration="1422000" />
       <workItem from="1570596258726" duration="11012000" />
+      <workItem from="1570708094050" duration="6986000" />
     </task>
     <servers />
   </component>
