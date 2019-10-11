@@ -83,7 +83,6 @@ public class MiniCPrintListener extends MiniCBaseListener {
         }
     }
 
-
     // *** Description *** : enterExpr, exitExpr
     boolean isUnaryOperation(MiniCParser.ExprContext ctx){
         return ctx.getChildCount() == 2 &&
@@ -187,12 +186,18 @@ public class MiniCPrintListener extends MiniCBaseListener {
 
     // *** Description *** : exitParam
     boolean hasArrayOperator(MiniCParser.ParamContext ctx){
-        if (ctx.getChildCount() < 2) return false;
+        if (ctx.getChildCount() < 3) return false;
         return ctx.getChild(2).getText().equals("[");
     }
 
     @Override
     public void exitParam(MiniCParser.ParamContext ctx) {
+        // *** Description ***
+        // ** ctx.getChild(0) : type_spec
+        // ** ctx.getChild(1) : IDENT
+        // ** ctx.getChild(2) : [ or null
+        // ** ctx.getChild(3) : ] or null
+
         if(hasArrayOperator(ctx)){
             newTexts.put(ctx, ctx.getChild(0).getText() + " " + ctx.getChild(1).getText() + "[]");
         }
@@ -203,7 +208,18 @@ public class MiniCPrintListener extends MiniCBaseListener {
 
     @Override
     public void exitParams(MiniCParser.ParamsContext ctx) {
+        // *** Description ***
+        // ** ctx.getChild(2k) : param
+        // ** ctx.getChild(2k - 1) : ,
 
+        StringBuilder strBuilder = new StringBuilder();
+
+        for (int i = 0; i < ctx.getChildCount(); i++){
+            if(i % 2 == 1) strBuilder.append(", ");
+            else strBuilder.append(newTexts.get(ctx.getChild(i)));
+        }
+
+        newTexts.put(ctx, strBuilder.toString());
     }
 
     // *** Description *** : exitCompound_stmt
@@ -256,6 +272,13 @@ public class MiniCPrintListener extends MiniCBaseListener {
         return ctx.getChildCount() > 5;
     }
 
+    // *** Description *** : exitIf_stmt
+    boolean hasBracket(MiniCParser.If_stmtContext ctx){
+        if (ctx.getChildCount() < 4) return false;
+        String s = newTexts.get(ctx.getChild(4));
+        return ctx.getChild(4).getText().equals("{");
+    }
+
     @Override
     public void enterIf_stmt(MiniCParser.If_stmtContext ctx) {
         // *** Description ***
@@ -266,6 +289,7 @@ public class MiniCPrintListener extends MiniCBaseListener {
         // ** ctx.getChild(4) : stmt
         // ** ctx.getChild(5) : else or null
         // ** ctx.getChild(6) : stmt or null
+
         newTexts.put(ctx.getChild(2), ctx.getChild(2).getText());
 
     }
@@ -281,11 +305,19 @@ public class MiniCPrintListener extends MiniCBaseListener {
         // ** ctx.getChild(5) : else or null
         // ** ctx.getChild(6) : stmt or null
 
+        // if 뒤에 중괄호 안 나올때와 중괄호 나올 때를 어떻게 구분하지??
+        // MiniC.g4는 못 바꿈.
+
+        int a = ctx.getChild(4).getChild(0).getChildCount();
+
         if(hasElseStmt(ctx)){
-            newTexts.put(ctx, "if (" + newTexts.get(ctx.getChild(2)) + ") " + newTexts.get(ctx.getChild(4).getChild(0)) + "else " + newTexts.get(ctx.getChild(6).getChild(0)));
+            newTexts.put(ctx, "if (" + newTexts.get(ctx.getChild(2)) + ")\n"
+                    + newTexts.get(ctx.getChild(4).getChild(0))
+                    + "else\n" + newTexts.get(ctx.getChild(6).getChild(0)));
         }
-        else {
-            newTexts.put(ctx, "if (" + newTexts.get(ctx.getChild(2)) + ") " + newTexts.get(ctx.getChild(4).getChild(0)));
+        else{
+            newTexts.put(ctx, "if (" + newTexts.get(ctx.getChild(2)) + ")\n"
+                    + newTexts.get(ctx.getChild(4).getChild(0)));
         }
     }
 
@@ -311,7 +343,8 @@ public class MiniCPrintListener extends MiniCBaseListener {
         // ** ctx.getChild(3) : )
         // ** ctx.getChild(4) : stmt
 
-        newTexts.put(ctx, "while (" + newTexts.get(ctx.getChild(2)) + ")\n" + newTexts.get(ctx.getChild(4).getChild(0)));
+        newTexts.put(ctx, "while (" + newTexts.get(ctx.getChild(2)) + ")\n"
+                + newTexts.get(ctx.getChild(4).getChild(0)));
     }
 
     @Override
@@ -324,8 +357,8 @@ public class MiniCPrintListener extends MiniCBaseListener {
         // ** ctx.getChild(4) : )
         // ** ctx.getChild(5) : compound_stmts
 
-        newTexts.put(ctx, ctx.getChild(0).getText() + " " + ctx.getChild(1).getText() + "(" + ctx.getChild(3).getText() + ")\n" + newTexts.get(ctx.getChild(5)));
-
+        newTexts.put(ctx, ctx.getChild(0).getText() + " " + ctx.getChild(1).getText()
+                + "(" + newTexts.get(ctx.getChild(3)) + ")\n" + newTexts.get(ctx.getChild(5)));
     }
 
     @Override
@@ -351,7 +384,7 @@ public class MiniCPrintListener extends MiniCBaseListener {
         strBuilder.append("(");
         for (int i = 0; i < ctx.getChildCount(); i++){
             if (i % 2 == 1) strBuilder.append(", ");
-            else strBuilder.append(ctx.getChild(i).getText());
+            else strBuilder.append(newTexts.get(ctx.getChild(i)));
         }
         strBuilder.append(")");
 
@@ -383,7 +416,6 @@ public class MiniCPrintListener extends MiniCBaseListener {
         // ** ctx.getChild(2) : ; or null
 
         if (hasExpr(ctx)){
-            String s = ctx.getChild(1).getText();
             newTexts.put(ctx, "return " + newTexts.get(ctx.getChild(1)) + ";");
         }
         else{
