@@ -274,9 +274,8 @@ public class MiniCPrintListener extends MiniCBaseListener {
 
     // *** Description *** : exitIf_stmt
     boolean hasBracket(MiniCParser.If_stmtContext ctx){
-        if (ctx.getChildCount() < 4) return false;
-        String s = newTexts.get(ctx.getChild(4));
-        return ctx.getChild(4).getText().equals("{");
+        String target = ctx.getText();
+        return target.contains("{");
     }
 
     @Override
@@ -305,19 +304,23 @@ public class MiniCPrintListener extends MiniCBaseListener {
         // ** ctx.getChild(5) : else or null
         // ** ctx.getChild(6) : stmt or null
 
-        // if 뒤에 중괄호 안 나올때와 중괄호 나올 때를 어떻게 구분하지??
-        // MiniC.g4는 못 바꿈.
-
-        int a = ctx.getChild(4).getChild(0).getChildCount();
-
-        if(hasElseStmt(ctx)){
+        if(hasElseStmt(ctx) && hasBracket(ctx)){
             newTexts.put(ctx, "if (" + newTexts.get(ctx.getChild(2)) + ")\n"
                     + newTexts.get(ctx.getChild(4).getChild(0))
                     + "else\n" + newTexts.get(ctx.getChild(6).getChild(0)));
         }
-        else{
+        else if(hasElseStmt(ctx) && !hasBracket(ctx)){
+            newTexts.put(ctx, "if (" + newTexts.get(ctx.getChild(2)) + ")\n"
+                    + "...." + newTexts.get(ctx.getChild(4).getChild(0))
+                    + "else\n" + newTexts.get(ctx.getChild(6).getChild(0)));
+        }
+        else if(!hasElseStmt(ctx) && hasBracket(ctx)){
             newTexts.put(ctx, "if (" + newTexts.get(ctx.getChild(2)) + ")\n"
                     + newTexts.get(ctx.getChild(4).getChild(0)));
+        }
+        else if(!hasElseStmt(ctx) && !hasBracket(ctx)){
+            newTexts.put(ctx, "if (" + newTexts.get(ctx.getChild(2)) + ")\n"
+                    + "...." + newTexts.get(ctx.getChild(4).getChild(0)));
         }
     }
 
