@@ -2,12 +2,66 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9483250e-d898-4db1-a8c6-c968ba9c1421" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw4/Original.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw4/Test.j" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCPrintListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCPrintListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw1/NooNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw1/NooToC.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw1/NooToCTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw1/NooTree$TreeIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw1/NooTree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCBaseListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCBaseVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCLexer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$ArgsContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Compound_stmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$DeclContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$ExprContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Expr_stmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Fun_declContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$If_stmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Local_declContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$ParamContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$ParamsContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$ProgramContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Return_stmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$StmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Type_specContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$Var_declContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser$While_stmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/MiniCVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw2/TestMiniC.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCBaseListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCBaseVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCLexer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser$ArgsContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser$Compound_stmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser$DeclContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser$ExprContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser$Expr_stmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser$Fun_declContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser$If_stmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser$Local_declContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser$ParamContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser$ParamsContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser$ProgramContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser$Return_stmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser$StmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser$Type_specContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser$Var_declContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser$While_stmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCPrintListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/MiniCVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/Translator$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/Translator$OPTIONS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/Translator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/[CP01]201502085_이규봉_hw03.hwp" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw3/[CP01]201502085_이규봉_hw03.hwp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCPrintListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCPrintListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/Translator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/Translator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/[CP01]201502085_이규봉_hw03.hwp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/[CP01]201502085_이규봉_hw03.hwp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +82,9 @@
     </option>
     <expand />
     <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Compiler-HW" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -60,7 +117,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.22413793" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -174,6 +231,9 @@
       <workItem from="1570789426841" duration="3437000" />
       <workItem from="1571059750450" duration="656000" />
       <workItem from="1571060440136" duration="2171000" />
+      <workItem from="1571099093986" duration="26000" />
+      <workItem from="1571100006857" duration="251000" />
+      <workItem from="1571208677708" duration="150000" />
     </task>
     <servers />
   </component>
