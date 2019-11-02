@@ -1,4 +1,4 @@
-     int dd = 2;
+    int dd = 2;
     int max=500; void main(int a, int b, int k[]){
     int a[30];
     int  b= 3;
