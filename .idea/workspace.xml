@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9483250e-d898-4db1-a8c6-c968ba9c1421" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_1/PrevTest.j" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5/[CP01]201502085_이규봉_hw05.hwp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5/jasmin.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5/sum.j" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5/Test.j" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_1/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5/[CP01]201502085_이규봉_hw05.hwp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_1/[CP01]201502085_이규봉_hw05.hwp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5/[CP01]201502085_이규봉_hw05.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_1/[CP01]201502085_이규봉_hw05.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5/jasmin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_1/jasmin.jar" afterDir="false" />
-    </list>
+    <list default="true" id="9483250e-d898-4db1-a8c6-c968ba9c1421" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +150,7 @@
       <workItem from="1572650652477" duration="387000" />
       <workItem from="1572685083491" duration="2097000" />
       <workItem from="1572947811621" duration="2000" />
-      <workItem from="1573118071476" duration="2342000" />
+      <workItem from="1573118071476" duration="2950000" />
     </task>
     <servers />
   </component>
