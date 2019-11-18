@@ -1,17 +1,13 @@
-package listener.main;
+package cnu.compiler19.hw5_2;
 
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Map;
 
-import generated.MiniCParser;
-import generated.MiniCParser.Fun_declContext;
-import generated.MiniCParser.Local_declContext;
-import generated.MiniCParser.ParamsContext;
-import generated.MiniCParser.Type_specContext;
-import generated.MiniCParser.Var_declContext;
-import listener.main.SymbolTable.Type;
-import static listener.main.BytecodeGenListenerHelper.*;
+import cnu.compiler19.hw5_2.MiniCParser.Fun_declContext;
+import cnu.compiler19.hw5_2.MiniCParser.Local_declContext;
+import cnu.compiler19.hw5_2.MiniCParser.Var_declContext;
+
+import static cnu.compiler19.hw5_2.BytecodeGenListenerHelper.*;
 
 
 public class SymbolTable {
@@ -35,9 +31,15 @@ public class SymbolTable {
 			this.initVal = 0;
 		}
 	}
-	
+
 	static public class FInfo {
 		public String sigStr;
+
+		FInfo(){}
+
+		FInfo(String _sigStr){
+			this.sigStr = _sigStr;
+		}
 	}
 	
 	private Map<String, VarInfo> _lsymtable = new HashMap<>();	// local v.
@@ -63,42 +65,44 @@ public class SymbolTable {
 	
 	void putLocalVar(String varname, Type type){
 		//<Fill here>
+		_lsymtable.put(varname, new VarInfo(type, _localVarID++));
 	}
 	
 	void putGlobalVar(String varname, Type type){
 		//<Fill here>
+		_gsymtable.put(varname, new VarInfo(type, _globalVarID++));
 	}
 	
 	void putLocalVarWithInitVal(String varname, Type type, int initVar){
 		//<Fill here>
+		_lsymtable.put(varname, new VarInfo(type, _localVarID++, initVar));
 	}
 	void putGlobalVarWithInitVal(String varname, Type type, int initVar){
 		//<Fill here>
-	
+		_gsymtable.put(varname, new VarInfo(type, _globalVarID++, initVar));
 	}
 	
 	void putParams(MiniCParser.ParamsContext params) {
 		for(int i = 0; i < params.param().size(); i++) {
 		//<Fill here>
+
 		}
 	}
 	
 	private void initFunTable() {
-		FInfo printlninfo = new FInfo();
-		printlninfo.sigStr = "java/io/PrintStream/println(I)V";
-		
-		FInfo maininfo = new FInfo();
-		maininfo.sigStr = "main([Ljava/lang/String;)V";
-		_fsymtable.put("_print", printlninfo);
-		_fsymtable.put("main", maininfo);
+		_fsymtable.put("_print", new FInfo("java/io/PrintStream/println(I)V"));
+		_fsymtable.put("main", new FInfo("main([Ljava/lang/String;)V"));
 	}
 	
 	public String getFunSpecStr(String fname) {		
 		// <Fill here>
+		if(_fsymtable.get(fname) != null) return _fsymtable.get(fname).sigStr;
+		else return "";
 	}
 
 	public String getFunSpecStr(Fun_declContext ctx) {
-		// <Fill here>	
+		// <Fill here>
+		return _fsymtable.get(ctx.IDENT().getText()).sigStr;
 	}
 	
 	public String putFunSpecStr(Fun_declContext ctx) {
@@ -111,15 +115,24 @@ public class SymbolTable {
 		
 		res =  fname + "(" + argtype + ")" + rtype;
 		
-		FInfo finfo = new FInfo();
-		finfo.sigStr = res;
+		FInfo finfo = new FInfo(res);
 		_fsymtable.put(fname, finfo);
 		
 		return res;
 	}
 	
 	String getVarId(String name){
-		// <Fill here>	
+		// <Fill here>
+		// local variable 중 찾고, 없으면 global에서 찾는다.
+		// global에도 있고 local에도 있다면, 변수 가리기로 local만 찾아진다.
+
+		if(_lsymtable.get(name) != null){
+			return Integer.toString(_lsymtable.get(name).id);
+		}
+		else{
+			return Integer.toString(_gsymtable.get(name).id);
+		}
+
 	}
 	
 	Type getVarType(String name){
@@ -135,6 +148,7 @@ public class SymbolTable {
 		
 		return Type.ERROR;	
 	}
+
 	String newLabel() {
 		return "label" + _labelID++;
 	}
@@ -146,7 +160,8 @@ public class SymbolTable {
 
 	// global
 	public String getVarId(Var_declContext ctx) {
-		// <Fill here>	
+		// <Fill here>
+		return getVarId(ctx.IDENT().getText());
 	}
 
 	// local

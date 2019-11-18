@@ -1,26 +1,14 @@
-package listener.main;
+package cnu.compiler19.hw5_2;
 
-import java.util.Hashtable;
-
-import org.antlr.v4.runtime.ParserRuleContext;
-import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
-import org.antlr.v4.runtime.tree.TerminalNode;
 
-import generated.MiniCBaseListener;
-import generated.MiniCParser;
-import generated.MiniCParser.ExprContext;
-import generated.MiniCParser.Fun_declContext;
-import generated.MiniCParser.Local_declContext;
-import generated.MiniCParser.ParamsContext;
-import generated.MiniCParser.ProgramContext;
-import generated.MiniCParser.StmtContext;
-import generated.MiniCParser.Type_specContext;
-import generated.MiniCParser.Var_declContext;
+import cnu.compiler19.hw5_2.MiniCParser.ParamsContext;
 
-import static listener.main.BytecodeGenListenerHelper.*;
-import static listener.main.SymbolTable.*;
+import static cnu.compiler19.hw5_2.BytecodeGenListenerHelper.*;
+import static cnu.compiler19.hw5_2.SymbolTable.*;
+
+import org.antlr.v4.runtime.tree.ParseTree;
 
 public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeListener {
 	ParseTreeProperty<String> newTexts = new ParseTreeProperty<String>();
@@ -123,7 +111,8 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 			else if(ctx.compound_stmt() != null)	// compound_stmt
 				stmt += newTexts.get(ctx.compound_stmt());
 			// <(0) Fill here>				
-	}
+
+		}
 		newTexts.put(ctx, stmt);
 	}
 	
@@ -188,11 +177,45 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		newTexts.put(ctx, varDecl);
 	}
 
-	
+
+	// *** Description *** : exitCompound_stmt
+	boolean isExprStmt(MiniCParser.Compound_stmtContext ctx, int index){
+		return newTexts.get(ctx.getChild(index).getChild(0)) != null;
+	}
+
+	// *** Description *** : exitCompound_stmt
+	boolean isNormalStmt(MiniCParser.Compound_stmtContext ctx, int index){
+		return newTexts.get(ctx.getChild(index).getChild(0)) == null;
+	}
+
 	// compound_stmt	: '{' local_decl* stmt* '}'
 	@Override
 	public void exitCompound_stmt(MiniCParser.Compound_stmtContext ctx) {
 		// <(3) Fill here>
+		int nodeNum = ctx.getChildCount();
+        int stmtNum = nodeNum - 2;
+
+        StringBuilder strBuilder = new StringBuilder();
+
+        for (int i = 0; i < stmtNum; i++){
+
+            ParseTree node = null;
+
+            if(isNormalStmt(ctx, i + 1)){
+                node = ctx.getChild(i + 1);
+            }
+            else if(isExprStmt(ctx, i + 1)){
+                node = ctx.getChild(i + 1).getChild(0);
+            }
+
+            String[] content = newTexts.get(node).split("\n");
+
+            for (String str : content) {
+                strBuilder.append("...." + str + "\n");
+            }
+        }
+
+        newTexts.put(ctx, "{\n" + strBuilder.toString() + "}\n");
 	}
 
 	// if_stmt	: IF '(' expr ')' stmt | IF '(' expr ')' stmt ELSE stmt;
@@ -224,12 +247,31 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		
 		newTexts.put(ctx, stmt);
 	}
-	
-	
+
+
+	// *** Description *** : enterReturn_stmt, exitReturn_stmt
+	boolean hasExpr(MiniCParser.Return_stmtContext ctx){
+		return !ctx.getChild(1).getText().equals(";");
+	}
+
 	// return_stmt	: RETURN ';' | RETURN expr ';'
 	@Override
 	public void exitReturn_stmt(MiniCParser.Return_stmtContext ctx) {
-			// <(4) Fill here>
+		// <(4) Fill here>
+		// *** Description ***
+		// ** ctx.getChild(0) : return
+		// ** ctx.getChild(1) : ; or expr
+		// ** ctx.getChild(2) : ; or null
+
+		if (symbolTable.getVarType(ctx.getChild(1).getText()) == Type.INT) {
+			newTexts.put(ctx, "ireturn");
+		}
+		else if(symbolTable.getVarType(ctx.getChild(1).getText()) == Type.VOID){
+			newTexts.put(ctx, "return");
+		}
+		else if(symbolTable.getVarType(ctx.getChild(1).getText()) == Type.INTARRAY){
+			newTexts.put(ctx, "iareturn");
+		}
 	}
 
 	

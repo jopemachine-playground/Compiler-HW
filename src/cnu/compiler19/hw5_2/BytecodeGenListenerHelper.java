@@ -1,18 +1,13 @@
-package listener.main;
+package cnu.compiler19.hw5_2;
 
-import java.util.Hashtable;
-
-import generated.MiniCParser;
-import generated.MiniCParser.ExprContext;
-import generated.MiniCParser.Fun_declContext;
-import generated.MiniCParser.If_stmtContext;
-import generated.MiniCParser.Local_declContext;
-import generated.MiniCParser.ParamContext;
-import generated.MiniCParser.ParamsContext;
-import generated.MiniCParser.Type_specContext;
-import generated.MiniCParser.Var_declContext;
-import listener.main.SymbolTable;
-import listener.main.SymbolTable.VarInfo;
+import cnu.compiler19.hw5_2.MiniCParser.ExprContext;
+import cnu.compiler19.hw5_2.MiniCParser.Fun_declContext;
+import cnu.compiler19.hw5_2.MiniCParser.If_stmtContext;
+import cnu.compiler19.hw5_2.MiniCParser.Local_declContext;
+import cnu.compiler19.hw5_2.MiniCParser.ParamContext;
+import cnu.compiler19.hw5_2.MiniCParser.ParamsContext;
+import cnu.compiler19.hw5_2.MiniCParser.Type_specContext;
+import cnu.compiler19.hw5_2.MiniCParser.Var_declContext;
 
 public class BytecodeGenListenerHelper {
 	
@@ -57,10 +52,11 @@ public class BytecodeGenListenerHelper {
 	
 	static boolean isVoidF(Fun_declContext ctx) {
 			// <Fill in>
+		return ctx.getChild(0).getText() == "void";
 	}
 	
 	static boolean isIntReturn(MiniCParser.Return_stmtContext ctx) {
-		return ctx.getChildCount() ==3;
+		return ctx.getChildCount() == 3;
 	}
 
 
@@ -75,13 +71,17 @@ public class BytecodeGenListenerHelper {
 	static String getLocalVarSize(Fun_declContext ctx) {
 		return "32";
 	}
+
+
 	static String getTypeText(Type_specContext typespec) {
 			// <Fill in>
+		return typespec.getText();
 	}
 
 	// params
 	static String getParamName(ParamContext param) {
 		// <Fill in>
+		return param.getChild(1).getText();
 	}
 	
 	static String getParamTypesText(ParamsContext params) {
@@ -96,14 +96,17 @@ public class BytecodeGenListenerHelper {
 	
 	static String getLocalVarName(Local_declContext local_decl) {
 		// <Fill in>
+		return local_decl.getChild(1).getText();
 	}
 	
 	static String getFunName(Fun_declContext ctx) {
 		// <Fill in>
+		return ctx.getChild(1).getText();
 	}
 	
 	static String getFunName(ExprContext ctx) {
 		// <Fill in>
+		return ctx.getChild(1).getText();
 	}
 	
 	static boolean noElse(If_stmtContext ctx) {
@@ -111,11 +114,12 @@ public class BytecodeGenListenerHelper {
 	}
 	
 	static String getFunProlog() {
-		// return ".class public Test .....
-		// ...
-		// invokenonvirtual java/lang/Object/<init>()
-		// return
-		// .end method"
+		 return
+			".class public Test .....\n" +
+		 	"...\n" +
+		 	"invokenonvirtual java/lang/Object/<init>()\n" +
+		 	"return\n" +
+		 	".end method";
 	}
 	
 	static String getCurrentClassName() {
