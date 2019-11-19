@@ -119,7 +119,7 @@ public class BytecodeGenListenerHelper {
 		 	"...\n" +
 		 	"invokenonvirtual java/lang/Object/<init>()\n" +
 		 	"return\n" +
-		 	".end method";
+		 	".end method" + "\n";
 	}
 	
 	static String getCurrentClassName() {

@@ -2,29 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9483250e-d898-4db1-a8c6-c968ba9c1421" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/MiniC.interp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/MiniC.tokens" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/MiniCBaseListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/MiniCBaseVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/MiniCLexer.interp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/MiniCLexer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/MiniCLexer.tokens" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/MiniCListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/MiniCParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/MiniCVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/MiniC.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler-HW.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler-HW.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_1/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_1/Test.j" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_1/[CP01]201502085_이규봉_hw05.hwp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_1/[CP01]201502085_이규봉_hw05.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_1/jasmin.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/BytecodeGenListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/BytecodeGenListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCPrintListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCPrintListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/BytecodeGenListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/BytecodeGenListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/BytecodeGenListenerHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/BytecodeGenListenerHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/SymbolTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/Translator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/Translator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +55,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/cnu/compiler19/hw5_2" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -83,19 +66,19 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.excludes" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Compiler-HW\src\cnu\compiler19\hw5_2" />
+      <recent name="C:\Compiler-HW" />
+      <recent name="C:\Compiler-HW\src" />
+      <recent name="C:\Compiler-HW\src\cnu\compiler19\hw3\TestFile" />
       <recent name="C:\Compiler-HW\src\cnu\compiler19\hw5" />
-      <recent name="C:\Compiler-HW\lib" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Compiler-HW" />
-      <recent name="C:\Compiler-HW\src" />
-      <recent name="C:\Compiler-HW\src\cnu\compiler19\hw5_2" />
-      <recent name="C:\Compiler-HW\src\cnu\compiler19\hw3\TestFile" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Compiler-HW\src\cnu\compiler19\hw5" />
+      <recent name="C:\Compiler-HW\lib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -191,6 +174,7 @@
       <workItem from="1573963018528" duration="3462000" />
       <workItem from="1574033216213" duration="5062000" />
       <workItem from="1574042908168" duration="320000" />
+      <workItem from="1574154823616" duration="7554000" />
     </task>
     <servers />
   </component>
