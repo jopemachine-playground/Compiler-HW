@@ -102,7 +102,7 @@ public class BytecodeGenListenerHelper {
 	
 	static String getFunName(Fun_declContext ctx) {
 		// <Fill in>
-		return ctx.getChild(0).getText();
+		return ctx.getChild(1).getText();
 	}
 	
 	static String getFunName(ExprContext ctx) {

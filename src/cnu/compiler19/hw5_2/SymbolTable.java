@@ -140,6 +140,7 @@ public class SymbolTable {
 		res =  fname + "(" + argtype + ")" + rtype;
 		
 		FInfo finfo = new FInfo(res);
+
 		_fsymtable.put(fname, finfo);
 		
 		return res;
