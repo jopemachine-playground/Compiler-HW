@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9483250e-d898-4db1-a8c6-c968ba9c1421" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/MiniC.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/BytecodeGenListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/BytecodeGenListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCPrintListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw3/MiniCPrintListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/BytecodeGenListenerHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/BytecodeGenListenerHelper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/BytecodeGenListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/BytecodeGenListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/BytecodeGenListenerHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/BytecodeGenListenerHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/SymbolTable.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -175,6 +175,7 @@
       <workItem from="1574033216213" duration="5062000" />
       <workItem from="1574042908168" duration="320000" />
       <workItem from="1574154823616" duration="7554000" />
+      <workItem from="1574334770927" duration="4834000" />
     </task>
     <servers />
   </component>

@@ -75,6 +75,7 @@ public class BytecodeGenListenerHelper {
 
 	static String getTypeText(Type_specContext typespec) {
 			// <Fill in>
+		System.out.println(typespec.getText());
 		return typespec.getText();
 	}
 
@@ -101,12 +102,12 @@ public class BytecodeGenListenerHelper {
 	
 	static String getFunName(Fun_declContext ctx) {
 		// <Fill in>
-		return ctx.getChild(1).getText();
+		return ctx.getChild(0).getText();
 	}
 	
 	static String getFunName(ExprContext ctx) {
 		// <Fill in>
-		return ctx.getChild(1).getText();
+		return ctx.getChild(0).getText();
 	}
 	
 	static boolean noElse(If_stmtContext ctx) {

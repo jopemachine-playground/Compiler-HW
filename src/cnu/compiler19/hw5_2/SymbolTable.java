@@ -1,6 +1,7 @@
 package cnu.compiler19.hw5_2;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import cnu.compiler19.hw5_2.MiniCParser.Fun_declContext;
@@ -58,6 +59,7 @@ public class SymbolTable {
 	}
 	
 	void initFunDecl(){		// at each func decl
+		_lsymtable.clear();
 		_localVarID = 0;
 		_labelID = 0;
 		_tempVarID = 32;		
@@ -83,9 +85,18 @@ public class SymbolTable {
 	}
 	
 	void putParams(MiniCParser.ParamsContext params) {
+
+		List<MiniCParser.ParamContext> paramContext = params.param();
+
 		for(int i = 0; i < params.param().size(); i++) {
 		//<Fill here>
+			Type type = null;
 
+			if(paramContext.get(i).getChild(0).getText().equals("int")){
+				type = Type.INT;
+			}
+
+			_lsymtable.put(paramContext.get(i).getChild(1).getText(), new VarInfo(type, _localVarID++));
 		}
 	}
 	
@@ -111,8 +122,21 @@ public class SymbolTable {
 		String rtype = "";
 		String res = "";
 		
-		// <Fill here>	
-		
+		// decide Params Type
+		for(int i = 0; i < ctx.getChild(3).getChildCount(); i++){
+			if(ctx.getChild(i).getText().equals("int")){
+				argtype += "I";
+			}
+		}
+
+		// decide return type
+		if(ctx.getChild(0).getText().equals("int")){
+			rtype = "I";
+		}
+		else if (ctx.getChild(0).getText().equals("void")){
+			rtype = "";
+		}
+
 		res =  fname + "(" + argtype + ")" + rtype;
 		
 		FInfo finfo = new FInfo(res);

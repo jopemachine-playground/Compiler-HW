@@ -160,38 +160,20 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		// ** ctx.getChild(4) : )
 		// ** ctx.getChild(5) : compound_stmts
 
-		// decide return type
-		String retType = "";
+		symbolTable.putFunSpecStr(ctx);
 
-		if(ctx.getChild(0).getText().equals("int")){
-			retType = "I";
-		}
-		else if (ctx.getChild(0).getText().equals("void")){
-			retType = "";
-		}
+		String funcBody = newTexts.get(ctx.getChild(5));
 
-		// decide Params Type
-		String paramsType = "";
-		for(int i = 0; i < ctx.getChild(3).getChildCount(); i++){
-			if(ctx.getChild(i).getText().equals("int")){
-				paramsType += "I";
-			}
-		}
-
-		// decide compound stmt
-		String stmts = "";
-		for(int i = 0; i < ctx.getChild(5).getChildCount(); i++){
-			stmts += newTexts.get(ctx.getChild(5).getChild(i)) + "\n";
-		}
-
-		newTexts.put(ctx, ".method public static " + ctx.getChild(1).getText() + "(" + paramsType + ")" + retType + "\n" + stmts);
+		newTexts.put(ctx,
+				funcHeader(ctx, ctx.getChild(1).getText()) + "\n"
+				+ funcBody);
 	}
 	
 
 	private String funcHeader(MiniCParser.Fun_declContext ctx, String fname) {
-		return ".method public static " + symbolTable.getFunSpecStr(fname) + "\n"	
-				+ "\t" + ".limit stack " 	+ getStackSize(ctx) + "\n"
-				+ "\t" + ".limit locals " 	+ getLocalVarSize(ctx) + "\n";
+		return ".method public static " + symbolTable.getFunSpecStr(fname) + "\n" +
+				".limit stack " 	+ getStackSize(ctx) + "\n" +
+				".limit locals " 	+ getLocalVarSize(ctx);
 	}
 	
 
@@ -213,7 +195,6 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		String varDecl = "";
 
 		if (isDeclWithInit(ctx)) {
-			symbolTable.putLocalVarWithInitVal(getLocalVarName(ctx), Type.INT, initVal(ctx));
 			String vId = symbolTable.getVarId(ctx);
 			varDecl += "ldc " + ctx.LITERAL().getText() + "\n"
 					+ "istore_" + vId + "\n"; 			
@@ -241,6 +222,13 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 	@Override
 	public void exitCompound_stmt(MiniCParser.Compound_stmtContext ctx) {
 		// <(3) Fill here>
+		// *** Description ***
+		// ** ctx.getChild(0) : {
+		// ** ctx.getChild(1) : statement or local_decl
+		// ** ctx.getChild(...) : statement or local_decl
+		// ** ctx.getChild(stmtNum) : statement or local_decl
+		// ** ctx.getChild(stmtNum + 1) : }
+
 		int nodeNum = ctx.getChildCount();
         int stmtNum = nodeNum - 2;
 
@@ -364,8 +352,13 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 			}
 			else {
 				// binary operation
-//				expr += "iload_" + symbolTable.getVarId(ctx.getChild(0).getText());
-//				expr += "iload_" + symbolTable.getVarId(ctx.getChild(2).getText());
+
+//				System.out.println(symbolTable.getVarId(ctx.getChild(0).getText()));
+
+//				expr += "iload_" + symbolTable.getVarId(newTexts.get(ctx.getChild(0)));
+//				expr += "iload_" + symbolTable.getVarId(newTexts.get(ctx.getChild(2)));
+
+
 				expr = handleBinExpr(ctx, expr);
 			}
 		}
@@ -411,7 +404,6 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		}
 		return expr;
 	}
-
 
 	private String handleBinExpr(MiniCParser.ExprContext ctx, String expr) {
 		String l2 = symbolTable.newLabel();
@@ -505,9 +497,10 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		return expr;
 	}
 	private String handleFunCall(MiniCParser.ExprContext ctx, String expr) {
-		String fname = getFunName(ctx);		
+		String fname = getFunName(ctx);
 
-		if (fname.equals("_print")) {		// System.out.println	
+		if (fname.equals("_print")) {		// System.out.println
+
 			expr = "getstatic java/lang/System/out Ljava/io/PrintStream; " + "\n"
 			  		+ newTexts.get(ctx.args()) 
 			  		+ "invokevirtual " + symbolTable.getFunSpecStr("_print") + "\n";
