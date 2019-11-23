@@ -110,7 +110,7 @@ public class BytecodeGenListenerHelper {
 	}
 	
 	static boolean noElse(If_stmtContext ctx) {
-		return ctx.getChildCount() < 5;
+		return ctx.ELSE() == null;
 	}
 	
 	static String getFunProlog() {
