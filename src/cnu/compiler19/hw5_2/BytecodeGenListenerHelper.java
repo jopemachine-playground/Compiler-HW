@@ -75,7 +75,6 @@ public class BytecodeGenListenerHelper {
 
 	static String getTypeText(Type_specContext typespec) {
 			// <Fill in>
-		System.out.println(typespec.getText());
 		return typespec.getText();
 	}
 
@@ -116,9 +115,11 @@ public class BytecodeGenListenerHelper {
 	
 	static String getFunProlog() {
 		 return
-			".class public Test .....\n" +
-		 	"...\n" +
-		 	"invokenonvirtual java/lang/Object/<init>()\n" +
+			".class public Test\n" +
+			".super java/lang/Object\n" +
+			"; strandard initializer\n" +
+			"aload_0\n" +
+		 	"invokenonvirtual java/lang/Object/<init>()V\n" +
 		 	"return\n" +
 		 	".end method" + "\n";
 	}

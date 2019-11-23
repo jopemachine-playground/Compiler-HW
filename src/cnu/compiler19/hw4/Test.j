@@ -9,7 +9,7 @@ return
 .method public static add(II)I
 .limit stack 32
 .limit locals 32
-iload_0
+iload_1
 iload_1
 iadd
 istore_2

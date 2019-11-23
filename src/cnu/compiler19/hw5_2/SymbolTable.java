@@ -36,8 +36,6 @@ public class SymbolTable {
 	static public class FInfo {
 		public String sigStr;
 
-		FInfo(){}
-
 		FInfo(String _sigStr){
 			this.sigStr = _sigStr;
 		}
@@ -117,15 +115,21 @@ public class SymbolTable {
 	}
 	
 	public String putFunSpecStr(Fun_declContext ctx) {
+
 		String fname = getFunName(ctx);
 		String argtype = "";	
 		String rtype = "";
 		String res = "";
-		
+
 		// decide Params Type
-		for(int i = 0; i < ctx.getChild(3).getChildCount(); i++){
-			if(ctx.getChild(i).getText().equals("int")){
+		String[] params = ctx.getChild(3).getText().split(",");
+
+		for(int i = 0; i < params.length; i++){
+			if(params[i].startsWith("int")){
 				argtype += "I";
+			}
+			else if(params[i].startsWith("void")){
+				argtype += "V";
 			}
 		}
 
@@ -134,7 +138,7 @@ public class SymbolTable {
 			rtype = "I";
 		}
 		else if (ctx.getChild(0).getText().equals("void")){
-			rtype = "";
+			rtype = "V";
 		}
 
 		res =  fname + "(" + argtype + ")" + rtype;
