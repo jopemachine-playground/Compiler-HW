@@ -7,4 +7,5 @@ int add(int x, int y) {
 void main () {
 	int t = 33;  
 	_print(add(1,t));
+
 }

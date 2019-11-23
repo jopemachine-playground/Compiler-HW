@@ -6,8 +6,9 @@ int add(int x, int y) {
 
 void main () {
 	int t = 33;
-	if(t + 3 == 2){
+	while(t + 3 == 2 and t + 11111 == 22222){
         _print(add(1,2));
 	}
+
 
 }

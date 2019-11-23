@@ -108,11 +108,14 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		String stmt = "";
 		if(ctx.getChildCount() > 0)
 		{
-			if(ctx.expr_stmt() != null)				// expr_stmt
+			if(ctx.expr_stmt() != null)
+				// expr_stmt
 				stmt += newTexts.get(ctx.expr_stmt());
-			else if(ctx.compound_stmt() != null)	// compound_stmt
+			else if(ctx.compound_stmt() != null)
+				// compound_stmt
 				stmt += newTexts.get(ctx.compound_stmt());
 				// <(0) Fill here>
+
 			else if(ctx.if_stmt() != null){
 				stmt += newTexts.get(ctx.if_stmt());
 			}
@@ -152,12 +155,28 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		// ** ctx.getChild(3) : )
 		// ** ctx.getChild(4) : stmt
 
-		StringBuilder strBuilder = new StringBuilder("");
+		String res = "";
 
-		strBuilder.append("Lloop: t1  " + newTexts.get(ctx.getChild(2)));
+		String condExpr= newTexts.get(ctx.expr());
+		String thenStmt = newTexts.get(ctx.stmt());
 
-		newTexts.put(ctx, "while (" + newTexts.get(ctx.getChild(2)) + ")\n"
-				+ newTexts.get(ctx.getChild(4).getChild(0)));
+		String lend = symbolTable.newLabel();
+		String lstart = symbolTable.newLabel();
+
+		// cond가 참이면 1을 로드, 거짓이면 0을 로드
+		res += condExpr
+				// 조건이 1이 될 때 까지 lstart로 돌아온다
+				+ lstart + ":\n"
+				// 거짓이면 lend로 jump
+				+ "ifeq\t" + lend + "\n"
+				// 참이면 thenStmt가 실행되고, 반복
+				+ thenStmt
+                + "goto\t" + lstart + "\n"
+				// 거짓일 때 점프하는 label
+				+ lend + ":";
+
+		newTexts.put(ctx, res);
+
 	}
 
 	@Override
@@ -273,22 +292,31 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 			stmt +=
 					// cond가 참이면 1을 로드, 거짓이면 0을 로드
 					condExpr
-							// 거짓이면 lend로 jump
-							+ "ifeq\t" + lend + "\n"
-							// 참이면 thenStmt가 실행됨
-							+ thenStmt + "\n"
-							// 거짓일 때 점프하는 label
-							+ lend + ":\t";
+					// 거짓이면 lend로 jump
+					+ "ifeq\t" + lend + "\n"
+					// 참이면 thenStmt가 실행됨
+					+ thenStmt
+					// 거짓일 때 점프하는 label
+					+ lend + ":";
 		}
 		else {
 			String elseStmt = newTexts.get(ctx.stmt(1));
-//			System.out.println(condExpr);
-			stmt += condExpr + "\n"
-					+ "ifeq " + lelse + "\n"
-					+ thenStmt + "\n"
-					+ "goto " + lend + "\n"
-					+ lelse + ": " + elseStmt + "\n"
-					+ lend + ":"  + lelse + "\n";
+
+			stmt +=
+					// cond가 참이면 1을 로드, 거짓이면 0을 로드
+					condExpr
+					// 거짓이면 else로 jump
+					+ "ifeq\t" + lelse + "\n"
+					// 참이면 thenStmt 실행
+					+ thenStmt
+					// 실행 후 end 라벨로 이동
+					+ "goto\t" + lend + "\n"
+					// 거짓일 때 실행되는 else 라벨
+					+ lelse + ":\n"
+					// else Stmt
+					+ elseStmt
+					// end 라벨
+					+ lend + ":\n";
 		}
 
 		newTexts.put(ctx, stmt);
@@ -339,17 +367,20 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 			}
 		}
 
-		else if(ctx.getChildCount() == 2) { // UnaryOperation
+		else if(ctx.getChildCount() == 2) {
+			// UnaryOperation
 			expr = handleUnaryExpr(ctx, "");
 		}
 
 		else if(ctx.getChildCount() == 3) {
 
-			if(ctx.getChild(0).getText().equals("(")) { 		// '(' expr ')'
+			if(ctx.getChild(0).getText().equals("(")) {
+				// '(' expr ')'
 				expr = newTexts.get(ctx.expr(0));
 			}
 
-			else if(ctx.getChild(1).getText().equals("=")) { 	// IDENT '=' expr
+			else if(ctx.getChild(1).getText().equals("=")) {
+				// IDENT '=' expr
 				expr = newTexts.get(ctx.expr(0))
 						+ "istore_" + symbolTable.getVarId(ctx.IDENT().getText()) + " \n";
 
@@ -361,9 +392,11 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		}
 		// IDENT '(' args ')' |  IDENT '[' expr ']'
 		else if(ctx.getChildCount() == 4) {
-			if(ctx.args() != null){		// function calls
+			if(ctx.args() != null){
+				// function calls
 				expr = handleFunCall(ctx, expr);
-			} else { // expr
+			} else {
+				// expr
 				// Arrays: TODO
 			}
 		}
@@ -459,7 +492,6 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 				break;
 
 			case "<=":
-				// <(5) Fill here>
 				expr += "isub " + "\n"
 						+ "ifle\t" + l2 + "\n"
 						+ "ldc 0" + "\n"
@@ -469,20 +501,19 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 				break;
 
 			case "<":
-				// <(6) Fill here>
 				expr +=
 						// push된 두 값을 뺌
 						"isub " + "\n"
-								// 뺀 결과가 0보다 작다면 l2로 점프
-								+ "iflt\t" + l2 + "\n"
-								// 뺀 결과가 0보다 크거나 같다면 식이 거짓이므로 0을 로드
-								+ "ldc 0" + "\n"
-								// 0을 로드하고 end label로 이동
-								+ "goto\t" + lend + "\n"
-								// l2 라벨. 1을 로드
-								+ l2 + ": \n" + "ldc 1" + "\n"
-								// lend 라벨.
-								+ lend + ": " + "\n";
+						// 뺀 결과가 0보다 작다면 l2로 점프
+						+ "iflt\t" + l2 + "\n"
+						// 뺀 결과가 0보다 크거나 같다면 식이 거짓이므로 0을 로드
+						+ "ldc 0" + "\n"
+						// 0을 로드하고 end label로 이동
+						+ "goto\t" + lend + "\n"
+						// l2 라벨. 1을 로드
+						+ l2 + ": \n" + "ldc 1" + "\n"
+						// lend 라벨.
+						+ lend + ": " + "\n";
 				break;
 
 			case ">=":
@@ -505,13 +536,19 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 						+ lend + ": " + "\n";
 				break;
 
-			case "&&":
-				expr +=  "ifne\t"+ lend + "\n"
-						+ "pop" + "\n" + "ldc 0" + "\n"
+			case "and":
+				expr +=
+						// 0이 아니면, 즉 참(1) 일때 end로 이동
+						"ifne\t" + lend + "\n"
+						// pop
+						+ "pop" + "\n"
+						// 0. 거짓.
+						+ "ldc 0" + "\n"
+						// 참일 땐 빠져나감
 						+ lend + ": " + "\n";
 				break;
 
-			case "||":
+			case "or":
 				// <(9) Fill here>
 //				expr +=  "ifne "+ lend + "\n"
 //						+ "pop" + "\n" + "ldc 0" + "\n"
@@ -541,7 +578,6 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 	@Override
 	public void exitArgs(MiniCParser.ArgsContext ctx) {
 
-		// String argsStr = "\n";
 		String argsStr = "";
 
 		for (int i = 0; i < ctx.expr().size(); i++) {
