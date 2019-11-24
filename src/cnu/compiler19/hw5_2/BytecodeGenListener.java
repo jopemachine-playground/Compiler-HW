@@ -88,7 +88,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 
 		System.out.println(newTexts.get(ctx));
 
-		File file = new File(System.getProperty("user.dir") + "\\" + "hw5_2_Test.j");
+		File file = new File(System.getProperty("user.dir") + "\\" + "Test.j");
 
 		try {
 		  FileWriter fw = new FileWriter(file);
@@ -563,7 +563,8 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 
 			case "and":
 				expr +=
-						// 0이 아니면, 즉 참(1) 일때 end로 이동
+						// 0이 아니면, 즉 참(1) 일때 end로 이동. 1을 그대로 top에 갖고 있으니,
+						// 다음 조건이 실행됨
 						"ifne\t" + lend + "\n"
 						// pop
 						+ "pop" + "\n"
@@ -574,10 +575,11 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 				break;
 
 			case "or":
-				// <(9) Fill here>
-//				expr +=  "ifne "+ lend + "\n"
-//						+ "pop" + "\n" + "ldc 0" + "\n"
-//						+ lend + ": " + "\n";
+				expr +=
+						"ifeq\t" + lend + "\n"
+						+ "pop" + "\n"
+						+ "ldc 1" + "\n"
+						+ lend + ": " + "\n";
 				break;
 
 		}
