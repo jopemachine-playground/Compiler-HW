@@ -118,6 +118,7 @@ public class BytecodeGenListenerHelper {
 			".class public Test\n" +
 			".super java/lang/Object\n" +
 			"; strandard initializer\n" +
+			".method public <init>()V\n" +
 			"aload_0\n" +
 		 	"invokenonvirtual java/lang/Object/<init>()V\n" +
 		 	"return\n" +

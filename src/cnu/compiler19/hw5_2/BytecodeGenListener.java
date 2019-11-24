@@ -10,6 +10,10 @@ import static cnu.compiler19.hw5_2.SymbolTable.*;
 
 import org.antlr.v4.runtime.tree.ParseTree;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeListener {
 	ParseTreeProperty<String> newTexts = new ParseTreeProperty<String>();
 	SymbolTable symbolTable = new SymbolTable();
@@ -83,6 +87,16 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		newTexts.put(ctx, classProlog + var_decl + fun_decl);
 
 		System.out.println(newTexts.get(ctx));
+
+		File file = new File(System.getProperty("user.dir") + "\\" + "hw5_2_Test.j");
+
+		try {
+		  FileWriter fw = new FileWriter(file);
+		  fw.write(newTexts.get(ctx));
+		  fw.close();
+		} catch (IOException e) {
+		  e.printStackTrace();
+		}
 	}
 
 
@@ -189,11 +203,18 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		// ** ctx.getChild(4) : )
 		// ** ctx.getChild(5) : compound_stmts
 
+        String res = "";
+        String voidRet = "";
 		String funcBody = newTexts.get(ctx.getChild(5));
 
-		newTexts.put(ctx,
-				funcHeader(ctx, ctx.getChild(1).getText())
-						+ funcBody + ".end method" + "\n");
+		// void 함수에 return 문이 없는 경우 붙여주기
+		if(ctx.compound_stmt().getChild(ctx.compound_stmt().getChildCount() - 2).getText().startsWith("return") == false){
+			voidRet = "return\n";
+		}
+
+		res = funcHeader(ctx, ctx.getChild(1).getText()) + funcBody + voidRet + ".end method" + "\n";
+
+		newTexts.put(ctx, res);
 	}
 
 	private String funcHeader(MiniCParser.Fun_declContext ctx, String fname) {
@@ -332,13 +353,17 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		// ** ctx.getChild(2) : ; or null
 
 		if (symbolTable.getVarType(ctx.getChild(1).getText()) == Type.INT) {
-			newTexts.put(ctx, "ireturn" + "\n");
-		}
-		else if(symbolTable.getVarType(ctx.getChild(1).getText()) == Type.VOID){
-			newTexts.put(ctx, "return" + "\n");
+			// int 값을 return 하는 경우, 리턴할 값을 load 해야 함.
+			String loadedVal = symbolTable.getVarId(ctx.getChild(1).getText());
+			newTexts.put(ctx,
+					 "iload_" + loadedVal + "\n" +
+					"ireturn" + "\n");
 		}
 		else if(symbolTable.getVarType(ctx.getChild(1).getText()) == Type.INTARRAY){
 			newTexts.put(ctx, "iareturn" + "\n");
+		}
+		else {
+			newTexts.put(ctx, "return" + "\n");
 		}
 	}
 

@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9483250e-d898-4db1-a8c6-c968ba9c1421" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/test.j" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/BytecodeGenListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/BytecodeGenListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw4/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw4/Test.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/BytecodeGenListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/BytecodeGenListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/test.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/BytecodeGenListenerHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/BytecodeGenListenerHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -92,7 +94,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Translator">
+  <component name="RunManager">
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cnu.compiler19.hw5_1.Test" />
       <module name="Compiler-HW" />
@@ -113,16 +115,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.Test" />
-      <item itemvalue="Application.Translator" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Translator" />
-        <item itemvalue="Application.Test" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -179,6 +171,7 @@
       <workItem from="1574499400771" duration="10130000" />
       <workItem from="1574510001873" duration="318000" />
       <workItem from="1574516697119" duration="3979000" />
+      <workItem from="1574561092762" duration="2712000" />
     </task>
     <servers />
   </component>
@@ -206,13 +199,5 @@
         <watch expression="sss" />
       </configuration>
     </watches-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Compiler_HW$NooToC.ic" NAME="NooToC Coverage Results" MODIFIED="1567661751682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Assign01.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Compiler_HW$Translator.ic" NAME="Translator Coverage Results" MODIFIED="1570456721857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>cnu.compiler19.hw3.*</FILTER>
-    </SUITE>
   </component>
 </project>
