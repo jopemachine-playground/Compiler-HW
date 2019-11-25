@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9483250e-d898-4db1-a8c6-c968ba9c1421" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/antlr4_4_7_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/antlr4_4_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw5_2_Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw5_2_Test.j" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test.j" beforeDir="false" afterPath="$PROJECT_DIR$/Test.j" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/BytecodeGenListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/BytecodeGenListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/BytecodeGenListenerHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/BytecodeGenListenerHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/SymbolTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/SymbolTable.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/[CP01]201502085_이규봉_hw05_2.hwp" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/[CP01]201502085_이규봉_hw05_2.hwp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/BytecodeGenListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/BytecodeGenListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/BytecodeGenListenerHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/BytecodeGenListenerHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/SymbolTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/[CP01]201502085_이규봉_hw05_2.hwp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_2/[CP01]201502085_이규봉_hw05_2.hwp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
     </list>
@@ -70,19 +73,19 @@
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Compiler-HW\src\cnu\compiler19\hw5" />
+      <recent name="C:\Compiler-HW\lib" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Compiler-HW\src\cnu\compiler19\hw5_2" />
       <recent name="C:\Compiler-HW" />
       <recent name="C:\Compiler-HW\src" />
       <recent name="C:\Compiler-HW\src\cnu\compiler19\hw3\TestFile" />
       <recent name="C:\Compiler-HW\src\cnu\compiler19\hw5" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Compiler-HW\src\cnu\compiler19\hw5" />
-      <recent name="C:\Compiler-HW\lib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -98,6 +101,19 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Translator">
+    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cnu.compiler19.hw5_2.Test" />
+      <module name="Compiler-HW" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cnu.compiler19.hw5_2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cnu.compiler19.hw5_1.Test" />
       <module name="Compiler-HW" />
@@ -121,7 +137,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Translator" />
-        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Test (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +199,11 @@
       <workItem from="1574561092762" duration="2712000" />
       <workItem from="1574564007965" duration="134000" />
       <workItem from="1574567135738" duration="291000" />
-      <workItem from="1574588595120" duration="3990000" />
+      <workItem from="1574588595120" duration="4715000" />
+      <workItem from="1574643002043" duration="125000" />
+      <workItem from="1574662643871" duration="63000" />
+      <workItem from="1574665877555" duration="328000" />
+      <workItem from="1574666294305" duration="6267000" />
     </task>
     <servers />
   </component>

@@ -64,21 +64,17 @@ public class SymbolTable {
 	}
 	
 	void putLocalVar(String varname, Type type){
-		//<Fill here>
 		_lsymtable.put(varname, new VarInfo(type, _localVarID++));
 	}
 	
 	void putGlobalVar(String varname, Type type){
-		//<Fill here>
 		_gsymtable.put(varname, new VarInfo(type, _globalVarID++));
 	}
 	
 	void putLocalVarWithInitVal(String varname, Type type, int initVar){
-		//<Fill here>
 		_lsymtable.put(varname, new VarInfo(type, _localVarID++, initVar));
 	}
 	void putGlobalVarWithInitVal(String varname, Type type, int initVar){
-		//<Fill here>
 		_gsymtable.put(varname, new VarInfo(type, _globalVarID++, initVar));
 	}
 	
@@ -87,7 +83,7 @@ public class SymbolTable {
 		List<MiniCParser.ParamContext> paramContext = params.param();
 
 		for(int i = 0; i < params.param().size(); i++) {
-		//<Fill here>
+
 			Type type = null;
 
 			if(paramContext.get(i).getChild(0).getText().equals("int")){
@@ -104,13 +100,11 @@ public class SymbolTable {
 	}
 	
 	public String getFunSpecStr(String fname) {		
-		// <Fill here>
 		if(_fsymtable.get(fname) != null) return _fsymtable.get(fname).sigStr;
 		else return "";
 	}
 
 	public String getFunSpecStr(Fun_declContext ctx) {
-		// <Fill here>
 		return _fsymtable.get(ctx.IDENT().getText()).sigStr;
 	}
 	
@@ -151,7 +145,6 @@ public class SymbolTable {
 	}
 	
 	String getVarId(String name){
-		// <Fill here>
 		// local variable 중 찾고, 없으면 global에서 찾는다.
 		// global에도 있고 local에도 있다면, 변수 가리기로 local만 찾아진다.
 
@@ -189,7 +182,6 @@ public class SymbolTable {
 
 	// global
 	public String getVarId(Var_declContext ctx) {
-		// <Fill here>
 		return getVarId(ctx.IDENT().getText());
 	}
 

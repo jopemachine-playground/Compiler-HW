@@ -22,7 +22,6 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 	int label = 0;
 
 	// program	: decl+
-
 	@Override
 	public void enterFun_decl(MiniCParser.Fun_declContext ctx) {
 		symbolTable.initFunDecl();
@@ -38,7 +37,6 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 			symbolTable.putParams(params);
 		}
 	}
-
 
 	// var_decl	: type_spec IDENT ';' | type_spec IDENT '=' LITERAL ';'|type_spec IDENT '[' LITERAL ']' ';'
 	@Override
@@ -86,8 +84,10 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 
 		newTexts.put(ctx, classProlog + var_decl + fun_decl);
 
+		// 컴파일된 j 파일을 콘솔에 출력
 		System.out.println(newTexts.get(ctx));
 
+		// 테스트를 위한 Test.j 파일 생성
 		File file = new File(System.getProperty("user.dir") + "\\" + "Test.j");
 
 		try {
@@ -98,7 +98,6 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		  e.printStackTrace();
 		}
 	}
-
 
 	// decl	: var_decl | fun_decl
 	@Override
@@ -120,16 +119,13 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 	@Override
 	public void exitStmt(MiniCParser.StmtContext ctx) {
 		String stmt = "";
+		// ctx의 타입에 따라 알맞은 Stmt를 붙여 newTexts에 넣어놓는다.
 		if(ctx.getChildCount() > 0)
 		{
 			if(ctx.expr_stmt() != null)
-				// expr_stmt
 				stmt += newTexts.get(ctx.expr_stmt());
 			else if(ctx.compound_stmt() != null)
-				// compound_stmt
 				stmt += newTexts.get(ctx.compound_stmt());
-				// <(0) Fill here>
-
 			else if(ctx.if_stmt() != null){
 				stmt += newTexts.get(ctx.if_stmt());
 			}
@@ -148,9 +144,10 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 	@Override
 	public void exitExpr_stmt(MiniCParser.Expr_stmtContext ctx) {
 		String stmt = "";
+
 		if(ctx.getChildCount() == 2)
 		{
-			stmt += newTexts.get(ctx.expr());	// expr
+			stmt += newTexts.get(ctx.expr());
 		}
 
 		// rtrim
@@ -177,12 +174,13 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		String lend = symbolTable.newLabel();
 		String lstart = symbolTable.newLabel();
 
-		// cond가 참이면 1을 로드, 거짓이면 0을 로드
-		res += condExpr
-				// 조건이 1이 될 때 까지 lstart로 돌아온다
-				+ lstart + ":\n"
-				// 거짓이면 lend로 jump
-				+ "ifeq\t" + lend + "\n"
+		res +=
+				// 조건이 거짓일 될 때 돌아올 start lbl
+				lstart + ":\n"
+				// 조건
+				+ condExpr
+				// 조건 검사	 후 거짓이면 end로 jump
+                + "ifeq\t" + lend + "\n"
 				// 참이면 thenStmt가 실행되고, 반복
 				+ thenStmt
                 + "goto\t" + lstart + "\n"
@@ -207,7 +205,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
         String voidRet = "";
 		String funcBody = newTexts.get(ctx.getChild(5));
 
-		// void 함수에 return 문이 없는 경우 붙여주기
+		// void 함수에 return 문이 없는 경우 붙여줘야 함
 		if(ctx.compound_stmt().getChild(ctx.compound_stmt().getChildCount() - 2).getText().startsWith("return") == false){
 			voidRet = "return\n";
 		}
@@ -516,6 +514,24 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 						+ lend + ": " + "\n";
 				break;
 
+			// <, <=, >, >= 의 경우 모두 같은 로직에서 명령어만 다르므로
+			// <의 경우만 주석을 달았습니다.
+			case "<":
+				expr +=
+						// push된 두 값을 뺌
+						"isub " + "\n"
+								// 뺀 결과가 0보다 작다면 l2로 점프
+								+ "iflt\t" + l2 + "\n"
+								// 뺀 결과가 0보다 크거나 같다면 식이 거짓이므로 0을 로드
+								+ "ldc 0" + "\n"
+								// 0을 로드하고 end label로 이동
+								+ "goto\t" + lend + "\n"
+								// l2 라벨. 1을 로드
+								+ l2 + ": \n" + "ldc 1" + "\n"
+								// lend 라벨.
+								+ lend + ": " + "\n";
+				break;
+
 			case "<=":
 				expr += "isub " + "\n"
 						+ "ifle\t" + l2 + "\n"
@@ -525,24 +541,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 						+ lend + ": " + "\n";
 				break;
 
-			case "<":
-				expr +=
-						// push된 두 값을 뺌
-						"isub " + "\n"
-						// 뺀 결과가 0보다 작다면 l2로 점프
-						+ "iflt\t" + l2 + "\n"
-						// 뺀 결과가 0보다 크거나 같다면 식이 거짓이므로 0을 로드
-						+ "ldc 0" + "\n"
-						// 0을 로드하고 end label로 이동
-						+ "goto\t" + lend + "\n"
-						// l2 라벨. 1을 로드
-						+ l2 + ": \n" + "ldc 1" + "\n"
-						// lend 라벨.
-						+ lend + ": " + "\n";
-				break;
-
 			case ">=":
-				// <(7) Fill here>
 				expr += "isub " + "\n"
 						+ "ifge\t" + l2 + "\n"
 						+ "ldc 0" + "\n"
@@ -552,7 +551,6 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 				break;
 
 			case ">":
-				// <(8) Fill here>
 				expr += "isub " + "\n"
 						+ "ifgt\t" + l2 + "\n"
 						+ "ldc 0" + "\n"
@@ -597,7 +595,6 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 			expr = newTexts.get(ctx.args())
 					+ "invokestatic " + getCurrentClassName()+ "/" + symbolTable.getFunSpecStr(fname) + "\n";
 		}
-
 		return expr;
 	}
 
