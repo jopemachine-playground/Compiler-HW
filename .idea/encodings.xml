@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/cnu/compiler19/hw5_2/SymbolTable.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/cnu/compiler19/hw5_2/Translator.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/cnu/compiler19/hw5_3/SymbolTable.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/cnu/compiler19/hw5_3/Translator.java" charset="x-windows-949" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

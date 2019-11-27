@@ -9,6 +9,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/cnu/compiler19/hw3" />
       <excludeFolder url="file://$MODULE_DIR$/src/cnu/compiler19/hw4" />
       <excludeFolder url="file://$MODULE_DIR$/src/cnu/compiler19/hw5_1" />
+      <excludeFolder url="file://$MODULE_DIR$/src/cnu/compiler19/hw5_2" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
