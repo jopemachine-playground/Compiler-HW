@@ -235,8 +235,8 @@ public class MiniCParser extends Parser {
 		public Type_specContext type_spec() {
 			return getRuleContext(Type_specContext.class,0);
 		}
-		public TerminalNode IDENT() { return getToken(cnu.compiler19.hw5_2.MiniCParser.IDENT, 0); }
-		public TerminalNode LITERAL() { return getToken(cnu.compiler19.hw5_2.MiniCParser.LITERAL, 0); }
+		public TerminalNode IDENT() { return getToken(MiniCParser.IDENT, 0); }
+		public TerminalNode LITERAL() { return getToken(MiniCParser.LITERAL, 0); }
 		public Var_declContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -320,8 +320,8 @@ public class MiniCParser extends Parser {
 	}
 
 	public static class Type_specContext extends ParserRuleContext {
-		public TerminalNode VOID() { return getToken(cnu.compiler19.hw5_2.MiniCParser.VOID, 0); }
-		public TerminalNode INT() { return getToken(cnu.compiler19.hw5_2.MiniCParser.INT, 0); }
+		public TerminalNode VOID() { return getToken(MiniCParser.VOID, 0); }
+		public TerminalNode INT() { return getToken(MiniCParser.INT, 0); }
 		public Type_specContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -375,7 +375,7 @@ public class MiniCParser extends Parser {
 		public Type_specContext type_spec() {
 			return getRuleContext(Type_specContext.class,0);
 		}
-		public TerminalNode IDENT() { return getToken(cnu.compiler19.hw5_2.MiniCParser.IDENT, 0); }
+		public TerminalNode IDENT() { return getToken(MiniCParser.IDENT, 0); }
 		public ParamsContext params() {
 			return getRuleContext(ParamsContext.class,0);
 		}
@@ -439,7 +439,7 @@ public class MiniCParser extends Parser {
 		public ParamContext param(int i) {
 			return getRuleContext(ParamContext.class,i);
 		}
-		public TerminalNode VOID() { return getToken(cnu.compiler19.hw5_2.MiniCParser.VOID, 0); }
+		public TerminalNode VOID() { return getToken(MiniCParser.VOID, 0); }
 		public ParamsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -519,7 +519,7 @@ public class MiniCParser extends Parser {
 		public Type_specContext type_spec() {
 			return getRuleContext(Type_specContext.class,0);
 		}
-		public TerminalNode IDENT() { return getToken(cnu.compiler19.hw5_2.MiniCParser.IDENT, 0); }
+		public TerminalNode IDENT() { return getToken(MiniCParser.IDENT, 0); }
 		public ParamContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -727,7 +727,7 @@ public class MiniCParser extends Parser {
 	}
 
 	public static class While_stmtContext extends ParserRuleContext {
-		public TerminalNode WHILE() { return getToken(cnu.compiler19.hw5_2.MiniCParser.WHILE, 0); }
+		public TerminalNode WHILE() { return getToken(MiniCParser.WHILE, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
@@ -870,8 +870,8 @@ public class MiniCParser extends Parser {
 		public Type_specContext type_spec() {
 			return getRuleContext(Type_specContext.class,0);
 		}
-		public TerminalNode IDENT() { return getToken(cnu.compiler19.hw5_2.MiniCParser.IDENT, 0); }
-		public TerminalNode LITERAL() { return getToken(cnu.compiler19.hw5_2.MiniCParser.LITERAL, 0); }
+		public TerminalNode IDENT() { return getToken(MiniCParser.IDENT, 0); }
+		public TerminalNode LITERAL() { return getToken(MiniCParser.LITERAL, 0); }
 		public Local_declContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -955,7 +955,7 @@ public class MiniCParser extends Parser {
 	}
 
 	public static class If_stmtContext extends ParserRuleContext {
-		public TerminalNode IF() { return getToken(cnu.compiler19.hw5_2.MiniCParser.IF, 0); }
+		public TerminalNode IF() { return getToken(MiniCParser.IF, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
@@ -965,7 +965,7 @@ public class MiniCParser extends Parser {
 		public StmtContext stmt(int i) {
 			return getRuleContext(StmtContext.class,i);
 		}
-		public TerminalNode ELSE() { return getToken(cnu.compiler19.hw5_2.MiniCParser.ELSE, 0); }
+		public TerminalNode ELSE() { return getToken(MiniCParser.ELSE, 0); }
 		public If_stmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1040,7 +1040,7 @@ public class MiniCParser extends Parser {
 	}
 
 	public static class Return_stmtContext extends ParserRuleContext {
-		public TerminalNode RETURN() { return getToken(cnu.compiler19.hw5_2.MiniCParser.RETURN, 0); }
+		public TerminalNode RETURN() { return getToken(MiniCParser.RETURN, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
@@ -1104,23 +1104,23 @@ public class MiniCParser extends Parser {
 	}
 
 	public static class ExprContext extends ParserRuleContext {
-		public TerminalNode LITERAL() { return getToken(cnu.compiler19.hw5_2.MiniCParser.LITERAL, 0); }
+		public TerminalNode LITERAL() { return getToken(MiniCParser.LITERAL, 0); }
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public TerminalNode IDENT() { return getToken(cnu.compiler19.hw5_2.MiniCParser.IDENT, 0); }
+		public TerminalNode IDENT() { return getToken(MiniCParser.IDENT, 0); }
 		public ArgsContext args() {
 			return getRuleContext(ArgsContext.class,0);
 		}
-		public TerminalNode EQ() { return getToken(cnu.compiler19.hw5_2.MiniCParser.EQ, 0); }
-		public TerminalNode NE() { return getToken(cnu.compiler19.hw5_2.MiniCParser.NE, 0); }
-		public TerminalNode LE() { return getToken(cnu.compiler19.hw5_2.MiniCParser.LE, 0); }
-		public TerminalNode GE() { return getToken(cnu.compiler19.hw5_2.MiniCParser.GE, 0); }
-		public TerminalNode AND() { return getToken(cnu.compiler19.hw5_2.MiniCParser.AND, 0); }
-		public TerminalNode OR() { return getToken(cnu.compiler19.hw5_2.MiniCParser.OR, 0); }
+		public TerminalNode EQ() { return getToken(MiniCParser.EQ, 0); }
+		public TerminalNode NE() { return getToken(MiniCParser.NE, 0); }
+		public TerminalNode LE() { return getToken(MiniCParser.LE, 0); }
+		public TerminalNode GE() { return getToken(MiniCParser.GE, 0); }
+		public TerminalNode AND() { return getToken(MiniCParser.AND, 0); }
+		public TerminalNode OR() { return getToken(MiniCParser.OR, 0); }
 		public ExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}

@@ -8,13 +8,27 @@ import cnu.compiler19.hw5_3.MiniCParser;
 import cnu.compiler19.hw5_3.MiniCParser.Fun_declContext;
 import cnu.compiler19.hw5_3.MiniCParser.Local_declContext;
 import cnu.compiler19.hw5_3.MiniCParser.Var_declContext;
+import com.sun.deploy.security.ValidationState;
 
 import static cnu.compiler19.hw5_3.BytecodeGenListenerHelper.*;
 
 
 public class SymbolTable {
 	enum Type {
-		INT, INTARRAY, VOID, ERROR
+		INT, CHAR, DOUBLE, FLOAT, SHORT, LONG, INTARRAY, VOID, ERROR
+	}
+
+	static public Map<Type, String> typeToPrev = new HashMap<Type, String>();
+
+	static {
+		typeToPrev.put(Type.INT, "i");
+		typeToPrev.put(Type.CHAR, "ca");
+		typeToPrev.put(Type.DOUBLE, "d");
+		typeToPrev.put(Type.FLOAT, "f");
+		typeToPrev.put(Type.LONG, "l");
+		typeToPrev.put(Type.SHORT, "sa");
+		typeToPrev.put(Type.INTARRAY, "ia");
+		typeToPrev.put(Type.VOID, "");
 	}
 	
 	static public class VarInfo {
@@ -87,8 +101,30 @@ public class SymbolTable {
 
 			Type type = null;
 
-			if(paramContext.get(i).getChild(0).getText().equals("int")){
-				type = Type.INT;
+			char ch = paramContext.get(i).getChild(0).getText().toUpperCase().charAt(0);
+
+			switch (ch){
+				case 'I':
+					type = Type.INT;
+					break;
+				case 'D':
+					type = Type.DOUBLE;
+					break;
+				case 'F':
+					type = Type.FLOAT;
+					break;
+				case 'C':
+					type = Type.CHAR;
+					break;
+				case 'S':
+					type = Type.SHORT;
+					break;
+				case 'L':
+					type = Type.LONG;
+					break;
+				case 'A':
+					// Handle Array
+					break;
 			}
 
 			_lsymtable.put(paramContext.get(i).getChild(1).getText(), new VarInfo(type, _localVarID++));
@@ -120,21 +156,12 @@ public class SymbolTable {
 		String[] params = ctx.getChild(3).getText().split(",");
 
 		for(int i = 0; i < params.length; i++){
-			if(params[i].startsWith("int")){
-				argtype += "I";
-			}
-			else if(params[i].startsWith("void")){
-				argtype += "V";
-			}
+			char ch = params[i].toUpperCase().charAt(0);
+			argtype += ch;
 		}
 
 		// decide return type
-		if(ctx.getChild(0).getText().equals("int")){
-			rtype = "I";
-		}
-		else if (ctx.getChild(0).getText().equals("void")){
-			rtype = "V";
-		}
+		rtype = ctx.getChild(0).getText().toUpperCase().substring(0, 1);
 
 		res =  fname + "(" + argtype + ")" + rtype;
 		
@@ -152,8 +179,11 @@ public class SymbolTable {
 		if(_lsymtable.get(name) != null){
 			return Integer.toString(_lsymtable.get(name).id);
 		}
-		else{
+		else if(_gsymtable.get(name) != null) {
 			return Integer.toString(_gsymtable.get(name).id);
+		}
+		else {
+			return null;
 		}
 
 	}

@@ -2,28 +2,54 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9483250e-d898-4db1-a8c6-c968ba9c1421" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/BytecodeGenListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/BytecodeGenListenerHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniC.g4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniC.interp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniC.tokens" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniCBaseListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniCBaseVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniCLexer.interp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniCLexer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniCLexer.tokens" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniCListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniCParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniCVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/SymbolTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/Translator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/jasmin.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/test.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compiler-HW.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Compiler-HW.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/BytecodeGenListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/BytecodeGenListenerHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniC.g4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniC.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniC.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCBaseListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCBaseVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCLexer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCLexer.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCLexer.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser$ArgsContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser$Compound_stmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser$DeclContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser$ExprContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser$Expr_stmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser$Fun_declContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser$If_stmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser$Local_declContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser$ParamContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser$ParamsContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser$ProgramContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser$Return_stmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser$StmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser$Type_specContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser$Var_declContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser$While_stmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/MiniCVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/SymbolTable$FInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/SymbolTable$Type.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/SymbolTable$VarInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/SymbolTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/Translator$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/Translator$OPTIONS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/Translator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/[CP01]201502085_이규봉_hw05_2.hwp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/jasmin.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_2/test.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/BytecodeGenListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/BytecodeGenListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniC.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniC.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniCParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniCParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/SymbolTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/[CP01]201502085_이규봉_hw05_3_계획.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/[CP01]201502085_이규봉_hw05_3_계획.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -110,7 +136,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Translator">
+  <component name="RunManager" selected="Application.Translator (1)">
     <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cnu.compiler19.hw5_2.Test" />
       <module name="Compiler-HW" />
@@ -124,9 +150,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cnu.compiler19.hw5_3.Test" />
+      <module name="Compiler-HW" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cnu.compiler19.hw5_3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cnu.compiler19.hw5_1.Test" />
       <module name="Compiler-HW" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Translator (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cnu.compiler19.hw5_3.Translator" />
+      <module name="Compiler-HW" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cnu.compiler19.hw5_3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -146,6 +198,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Translator (1)" />
+        <item itemvalue="Application.Test (2)" />
         <item itemvalue="Application.Translator" />
         <item itemvalue="Application.Test (1)" />
       </list>
@@ -215,6 +269,8 @@
       <workItem from="1574665877555" duration="328000" />
       <workItem from="1574666294305" duration="6267000" />
       <workItem from="1574835434126" duration="241000" />
+      <workItem from="1574835712599" duration="5397000" />
+      <workItem from="1574900085514" duration="4337000" />
     </task>
     <servers />
   </component>

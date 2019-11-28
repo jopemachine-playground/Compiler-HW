@@ -3,6 +3,7 @@ package cnu.compiler19.hw5_3;
 import cnu.compiler19.hw5_3.MiniCBaseListener;
 import cnu.compiler19.hw5_3.MiniCParser;
 import cnu.compiler19.hw5_3.SymbolTable;
+import javafx.beans.binding.DoubleExpression;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 
@@ -242,8 +243,33 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 
 		if (isDeclWithInit(ctx)) {
 			String vId = symbolTable.getVarId(ctx);
-			varDecl += "ldc " + ctx.LITERAL().getText() + "\n"
-					+ "istore_" + vId + "\n";
+
+			String typePrev = null;
+
+			// 변수로 초기화 할 경우
+			String var = symbolTable.getVarId(ctx.getChild(3).getText());
+
+			if(var != null){
+				typePrev = SymbolTable.typeToPrev.get(symbolTable.getVarType(ctx.getChild(3).getText()));
+				varDecl += "load_" + var + "\n";
+			}
+			else {
+
+				// 정수 값으로 초기화 할 경우
+				try {
+					typePrev = "i";
+					// 상수 값이 실수인 경우 NumberFormatException을 낸다
+					Integer.parseInt(ctx.getChild(3).getText());
+					varDecl += "ldc " + ctx.getChild(3).getText() + "\n";
+				}
+				// 실수로 초기화 할 경우
+				catch (NumberFormatException e) {
+					typePrev = "d";
+					varDecl += "ldc " + ctx.getChild(3).getText() + "\n";
+				}
+			}
+
+			varDecl += typePrev + "store_" + vId + "\n";
 		}
 		else {
 			String vId = symbolTable.getVarId(ctx);
@@ -347,24 +373,24 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 	// return_stmt	: RETURN ';' | RETURN expr ';'
 	@Override
 	public void exitReturn_stmt(MiniCParser.Return_stmtContext ctx) {
-		// <(4) Fill here>
 		// *** Description ***
 		// ** ctx.getChild(0) : return
 		// ** ctx.getChild(1) : ; or expr
 		// ** ctx.getChild(2) : ; or null
 
-		if (symbolTable.getVarType(ctx.getChild(1).getText()) == Type.INT) {
-			// int 값을 return 하는 경우, 리턴할 값을 load 해야 함.
-			String loadedVal = symbolTable.getVarId(ctx.getChild(1).getText());
-			newTexts.put(ctx,
-					 "iload_" + loadedVal + "\n" +
-					"ireturn" + "\n");
-		}
-		else if(symbolTable.getVarType(ctx.getChild(1).getText()) == Type.INTARRAY){
-			newTexts.put(ctx, "iareturn" + "\n");
+		String typePrev = SymbolTable.typeToPrev.get(symbolTable.getVarType(ctx.getChild(1).getText()));
+
+		// Void. 리턴할 값이 따로 없음
+		if (typePrev == "") {
+			newTexts.put(ctx, "return" + "\n");
 		}
 		else {
-			newTexts.put(ctx, "return" + "\n");
+			// 변수를 리턴하는 경우
+			String loadedVal = symbolTable.getVarId(ctx.getChild(1).getText());
+
+			newTexts.put(ctx,
+					typePrev + "load_" + loadedVal + "\n" +
+							typePrev + "return" + "\n");
 		}
 	}
 
@@ -381,9 +407,12 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 			if(ctx.IDENT() != null) {
 				String idName = ctx.IDENT().getText();
 
-				if(symbolTable.getVarType(idName) == Type.INT) {
-					expr += "iload_" + symbolTable.getVarId(idName) + " \n";
+				String typePrev = SymbolTable.typeToPrev.get(symbolTable.getVarType(idName));
+
+				if(typePrev != null){
+					expr += typePrev + "load_" + symbolTable.getVarId(idName) + "\n";
 				}
+
 				//else	// Type int array => Later! skip now..
 				//	expr += "           lda " + symbolTable.get(ctx.IDENT().getText()).value + " \n";
 			}
@@ -406,9 +435,13 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 			}
 
 			else if(ctx.getChild(1).getText().equals("=")) {
+
+				String typePrev = SymbolTable.typeToPrev.get(ctx.getChild(2).getText());
+
 				// IDENT '=' expr
-				expr = newTexts.get(ctx.expr(0))
-						+ "istore_" + symbolTable.getVarId(ctx.IDENT().getText()) + " \n";
+				if(typePrev != null) {
+					expr += newTexts.get(ctx.expr(0)) + typePrev + "store_"	+ symbolTable.getVarId(ctx.IDENT().getText()) + "\n";
+				}
 
 			}
 			else {
@@ -477,30 +510,52 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		expr += newTexts.get(ctx.expr(0));
 		expr += newTexts.get(ctx.expr(1));
 
+		String typePrev = null;
+
+		Type firstOperandType = symbolTable.getVarType(ctx.getChild(0).getText());
+
+		if(firstOperandType == Type.DOUBLE) {
+			typePrev = "d";
+		}
+		else {
+			String secondOperand = ctx.getChild(2).getText();
+
+			// 피연산자를 i로 두는 경우
+			try {
+				Integer.parseInt(secondOperand);
+				typePrev = "i";
+			}
+			// 피연산자를 d로 두는 경우
+			catch(NumberFormatException e) {
+				Double.parseDouble(secondOperand);
+				typePrev = "d";
+			}
+		}
+
 		switch (ctx.getChild(1).getText()) {
 
 			case "*":
-				expr += "imul \n";
+				expr += typePrev + "mul \n";
 				break;
 
 			case "/":
-				expr += "idiv \n";
+				expr += typePrev + "div \n";
 				break;
 
 			case "%":
-				expr += "irem \n";
+				expr += typePrev + "rem \n";
 				break;
 
 			case "+":
-				expr += "iadd \n";
+				expr += typePrev + "add \n";
 				break;
 
 			case "-":
-				expr += "isub \n";
+				expr += typePrev + "sub \n";
 				break;
 
 			case "==":
-				expr += "isub " + "\n"
+				expr += typePrev + "sub " + "\n"
 						+ "ifeq\t" + l2 + "\n"
 						+ "ldc 0" + "\n"
 						+ "goto\t" + lend + "\n"
@@ -509,7 +564,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 				break;
 
 			case "!=":
-				expr += "isub " + "\n"
+				expr += typePrev + "sub " + "\n"
 						+ "ifne\t" + l2 + "\n"
 						+ "ldc 0" + "\n"
 						+ "goto\t" + lend + "\n"
@@ -522,21 +577,21 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 			case "<":
 				expr +=
 						// push된 두 값을 뺌
-						"isub " + "\n"
-								// 뺀 결과가 0보다 작다면 l2로 점프
-								+ "iflt\t" + l2 + "\n"
-								// 뺀 결과가 0보다 크거나 같다면 식이 거짓이므로 0을 로드
-								+ "ldc 0" + "\n"
-								// 0을 로드하고 end label로 이동
-								+ "goto\t" + lend + "\n"
-								// l2 라벨. 1을 로드
-								+ l2 + ": \n" + "ldc 1" + "\n"
-								// lend 라벨.
-								+ lend + ": " + "\n";
+						typePrev + "sub " + "\n"
+						// 뺀 결과가 0보다 작다면 l2로 점프
+						+ "iflt\t" + l2 + "\n"
+						// 뺀 결과가 0보다 크거나 같다면 식이 거짓이므로 0을 로드
+						+ "ldc 0" + "\n"
+						// 0을 로드하고 end label로 이동
+						+ "goto\t" + lend + "\n"
+						// l2 라벨. 1을 로드
+						+ l2 + ": \n" + "ldc 1" + "\n"
+						// lend 라벨.
+						+ lend + ": " + "\n";
 				break;
 
 			case "<=":
-				expr += "isub " + "\n"
+				expr += typePrev + "sub " + "\n"
 						+ "ifle\t" + l2 + "\n"
 						+ "ldc 0" + "\n"
 						+ "goto\t" + lend + "\n"
@@ -545,7 +600,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 				break;
 
 			case ">=":
-				expr += "isub " + "\n"
+				expr += typePrev + "sub " + "\n"
 						+ "ifge\t" + l2 + "\n"
 						+ "ldc 0" + "\n"
 						+ "goto\t" + lend + "\n"
@@ -554,7 +609,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 				break;
 
 			case ">":
-				expr += "isub " + "\n"
+				expr += typePrev + "sub " + "\n"
 						+ "ifgt\t" + l2 + "\n"
 						+ "ldc 0" + "\n"
 						+ "goto\t" + lend + "\n"
