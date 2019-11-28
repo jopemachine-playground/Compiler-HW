@@ -47,7 +47,7 @@ public class BytecodeGenListenerHelper {
 	}
 
 	static boolean isDeclWithInit(Local_declContext ctx) {
-		return ctx.getChildCount() == 5 ;
+		return ctx.getChildCount() == 5;
 	}
 
 	static boolean isVoidF(Fun_declContext ctx) {

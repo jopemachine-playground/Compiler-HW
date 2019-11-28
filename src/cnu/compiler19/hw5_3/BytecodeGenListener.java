@@ -126,10 +126,12 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		// ctx의 타입에 따라 알맞은 Stmt를 붙여 newTexts에 넣어놓는다.
 		if(ctx.getChildCount() > 0)
 		{
-			if(ctx.expr_stmt() != null)
+			if(ctx.expr_stmt() != null) {
 				stmt += newTexts.get(ctx.expr_stmt());
-			else if(ctx.compound_stmt() != null)
+			}
+			else if(ctx.compound_stmt() != null) {
 				stmt += newTexts.get(ctx.compound_stmt());
+			}
 			else if(ctx.if_stmt() != null){
 				stmt += newTexts.get(ctx.if_stmt());
 			}
@@ -241,8 +243,9 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 	public void exitLocal_decl(MiniCParser.Local_declContext ctx) {
 		String varDecl = "";
 
+		String vId = symbolTable.getVarId(ctx);
+
 		if (isDeclWithInit(ctx)) {
-			String vId = symbolTable.getVarId(ctx);
 
 			String typePrev = null;
 
@@ -254,7 +257,6 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 				varDecl += "load_" + var + "\n";
 			}
 			else {
-
 				// 정수 값으로 초기화 할 경우
 				try {
 					typePrev = "i";
@@ -271,9 +273,18 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 
 			varDecl += typePrev + "store_" + vId + "\n";
 		}
-		else {
-			String vId = symbolTable.getVarId(ctx);
+		else if(ctx.getChild(2).getText().equals("[") &&
+				ctx.getChild(4).getText().equals("]"))
+		{
+			// 배열의 경우
+			String arrType = ctx.getChild(0).getText();
+			String arrSize = ctx.getChild(3).getText();
+
+			varDecl += "sipush	" + arrSize  + "\n"
+					+  "newarray	" + arrType + "\n"
+			 		+  "astore_" + vId;
 		}
+
 
 		newTexts.put(ctx, varDecl);
 	}
@@ -405,6 +416,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 
 		if(ctx.getChildCount() == 1) { // IDENT | LITERAL
 			if(ctx.IDENT() != null) {
+
 				String idName = ctx.IDENT().getText();
 
 				String typePrev = SymbolTable.typeToPrev.get(symbolTable.getVarType(idName));
@@ -417,8 +429,12 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 				//	expr += "           lda " + symbolTable.get(ctx.IDENT().getText()).value + " \n";
 			}
 			else if (ctx.LITERAL() != null) {
-				String literalStr = ctx.LITERAL().getText();
-				expr += "ldc " + literalStr + " \n";
+
+//				String vId = symbolTable.getVarId(ctx.getChild(1).getText());
+				String index = ctx.LITERAL().getText();
+
+				// push index
+				expr += "sipush " + index + " \n";
 			}
 		}
 
@@ -457,11 +473,22 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 			} else {
 				// expr
 				// Arrays: TODO
+
 			}
 		}
 		// IDENT '[' expr ']' '=' expr
 		else { // Arrays: TODO			*/
+
+			String vId = symbolTable.getVarId(ctx.getChild(0).getText());
+			String index = ctx.getChild(2).getText();
+			String value = ctx.getChild(5).getText();
+
+			expr += "aload_" + vId + "\n" +
+					"sipush    " + index + "\n" +
+					"bipush    " + value + "\n" +
+					"iastore" + "\n";
 		}
+
 
 		newTexts.put(ctx, expr);
 	}
