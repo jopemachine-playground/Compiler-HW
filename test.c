@@ -1,4 +1,7 @@
 void main () {
-	double nss;
-	nss = 2222;
+
+	char a;
+	a = 'b';
+	int b;
+	b = 3;
 }

@@ -1,12 +1,10 @@
 grammar MiniC;
 
-
-@header {
-package generated;
-}
 program	: decl+			;
+
 decl		: var_decl		
 		| fun_decl		;
+
 var_decl	:  type_spec IDENT ';' 
 		| type_spec IDENT '=' LITERAL ';'	
 		| type_spec IDENT '[' LITERAL ']' ';'	;
@@ -21,26 +19,36 @@ type_spec
     |   DOUBLE;
 
 fun_decl	: type_spec IDENT '(' params ')' compound_stmt ;
+
 params		: param (',' param)*		
-		| VOID				
+		| type_spec
 		|				;
+
 param		: type_spec IDENT		
 		| type_spec IDENT '[' ']'	;
+
 stmt		: expr_stmt			
 		| compound_stmt			
 		| if_stmt			
 		| while_stmt			
 		| return_stmt			;
+
 expr_stmt	: expr ';'			;
+
 while_stmt	: WHILE '(' expr ')' stmt	;
+
 compound_stmt: '{' local_decl* stmt* '}'	;
+
 local_decl	: type_spec IDENT ';'
 		| type_spec IDENT '=' LITERAL ';'	
 		| type_spec IDENT '[' LITERAL ']' ';'	;
+
 if_stmt		: IF '(' expr ')' stmt		
 		| IF '(' expr ')' stmt ELSE stmt 		;
+
 return_stmt	: RETURN ';'			
 		| RETURN expr ';'				;
+
 expr	:  LITERAL				
 	| '(' expr ')'				 
 	| IDENT				 
@@ -114,7 +122,7 @@ HexadecimalConstant
     ;
 
 CharConstant
-    : [a-z];
+    : '\''[a-z]'\'';
 
 WS  :   (   ' '
         |   '\t'

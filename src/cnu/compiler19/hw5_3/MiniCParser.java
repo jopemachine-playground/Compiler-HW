@@ -13,7 +13,6 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 
 import java.util.List;
 
-
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class MiniCParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.7.2", RuntimeMetaData.VERSION); }
@@ -27,7 +26,7 @@ public class MiniCParser extends Parser {
 		T__17=18, T__18=19, VOID=20, INT=21, CHAR=22, SHORT=23, LONG=24, FLOAT=25, 
 		DOUBLE=26, WHILE=27, IF=28, ELSE=29, RETURN=30, OR=31, AND=32, LE=33, 
 		GE=34, EQ=35, NE=36, IDENT=37, LITERAL=38, DecimalConstant=39, OctalConstant=40, 
-		HexadecimalConstant=41, WS=42;
+		HexadecimalConstant=41, CharConstant=42, WS=43;
 	public static final int
 		RULE_program = 0, RULE_decl = 1, RULE_var_decl = 2, RULE_type_spec = 3, 
 		RULE_fun_decl = 4, RULE_params = 5, RULE_param = 6, RULE_stmt = 7, RULE_expr_stmt = 8, 
@@ -58,7 +57,7 @@ public class MiniCParser extends Parser {
 			null, null, null, null, null, null, null, null, "VOID", "INT", "CHAR", 
 			"SHORT", "LONG", "FLOAT", "DOUBLE", "WHILE", "IF", "ELSE", "RETURN", 
 			"OR", "AND", "LE", "GE", "EQ", "NE", "IDENT", "LITERAL", "DecimalConstant", 
-			"OctalConstant", "HexadecimalConstant", "WS"
+			"OctalConstant", "HexadecimalConstant", "CharConstant", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -445,7 +444,9 @@ public class MiniCParser extends Parser {
 		public ParamContext param(int i) {
 			return getRuleContext(ParamContext.class,i);
 		}
-		public TerminalNode VOID() { return getToken(MiniCParser.VOID, 0); }
+		public Type_specContext type_spec() {
+			return getRuleContext(Type_specContext.class,0);
+		}
 		public ParamsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -500,7 +501,7 @@ public class MiniCParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(77);
-				match(VOID);
+				type_spec();
 				}
 				break;
 			case 3:
@@ -1589,7 +1590,7 @@ public class MiniCParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3,\u0106\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3-\u0106\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\3\2\6\2$\n"+
 		"\2\r\2\16\2%\3\3\3\3\5\3*\n\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4"+
@@ -1619,17 +1620,17 @@ public class MiniCParser extends Parser {
 		"9:\7\6\2\2:;\7\3\2\2;=\3\2\2\2<+\3\2\2\2</\3\2\2\2<\65\3\2\2\2=\7\3\2"+
 		"\2\2>?\t\2\2\2?\t\3\2\2\2@A\5\b\5\2AB\7\'\2\2BC\7\7\2\2CD\5\f\7\2DE\7"+
 		"\b\2\2EF\5\26\f\2F\13\3\2\2\2GL\5\16\b\2HI\7\t\2\2IK\5\16\b\2JH\3\2\2"+
-		"\2KN\3\2\2\2LJ\3\2\2\2LM\3\2\2\2MR\3\2\2\2NL\3\2\2\2OR\7\26\2\2PR\3\2"+
-		"\2\2QG\3\2\2\2QO\3\2\2\2QP\3\2\2\2R\r\3\2\2\2ST\5\b\5\2TU\7\'\2\2U\\\3"+
-		"\2\2\2VW\5\b\5\2WX\7\'\2\2XY\7\5\2\2YZ\7\6\2\2Z\\\3\2\2\2[S\3\2\2\2[V"+
-		"\3\2\2\2\\\17\3\2\2\2]c\5\22\n\2^c\5\26\f\2_c\5\32\16\2`c\5\24\13\2ac"+
-		"\5\34\17\2b]\3\2\2\2b^\3\2\2\2b_\3\2\2\2b`\3\2\2\2ba\3\2\2\2c\21\3\2\2"+
-		"\2de\5\36\20\2ef\7\3\2\2f\23\3\2\2\2gh\7\35\2\2hi\7\7\2\2ij\5\36\20\2"+
-		"jk\7\b\2\2kl\5\20\t\2l\25\3\2\2\2mq\7\n\2\2np\5\30\r\2on\3\2\2\2ps\3\2"+
-		"\2\2qo\3\2\2\2qr\3\2\2\2rw\3\2\2\2sq\3\2\2\2tv\5\20\t\2ut\3\2\2\2vy\3"+
-		"\2\2\2wu\3\2\2\2wx\3\2\2\2xz\3\2\2\2yw\3\2\2\2z{\7\13\2\2{\27\3\2\2\2"+
-		"|}\5\b\5\2}~\7\'\2\2~\177\7\3\2\2\177\u008e\3\2\2\2\u0080\u0081\5\b\5"+
-		"\2\u0081\u0082\7\'\2\2\u0082\u0083\7\4\2\2\u0083\u0084\7(\2\2\u0084\u0085"+
+		"\2KN\3\2\2\2LJ\3\2\2\2LM\3\2\2\2MR\3\2\2\2NL\3\2\2\2OR\5\b\5\2PR\3\2\2"+
+		"\2QG\3\2\2\2QO\3\2\2\2QP\3\2\2\2R\r\3\2\2\2ST\5\b\5\2TU\7\'\2\2U\\\3\2"+
+		"\2\2VW\5\b\5\2WX\7\'\2\2XY\7\5\2\2YZ\7\6\2\2Z\\\3\2\2\2[S\3\2\2\2[V\3"+
+		"\2\2\2\\\17\3\2\2\2]c\5\22\n\2^c\5\26\f\2_c\5\32\16\2`c\5\24\13\2ac\5"+
+		"\34\17\2b]\3\2\2\2b^\3\2\2\2b_\3\2\2\2b`\3\2\2\2ba\3\2\2\2c\21\3\2\2\2"+
+		"de\5\36\20\2ef\7\3\2\2f\23\3\2\2\2gh\7\35\2\2hi\7\7\2\2ij\5\36\20\2jk"+
+		"\7\b\2\2kl\5\20\t\2l\25\3\2\2\2mq\7\n\2\2np\5\30\r\2on\3\2\2\2ps\3\2\2"+
+		"\2qo\3\2\2\2qr\3\2\2\2rw\3\2\2\2sq\3\2\2\2tv\5\20\t\2ut\3\2\2\2vy\3\2"+
+		"\2\2wu\3\2\2\2wx\3\2\2\2xz\3\2\2\2yw\3\2\2\2z{\7\13\2\2{\27\3\2\2\2|}"+
+		"\5\b\5\2}~\7\'\2\2~\177\7\3\2\2\177\u008e\3\2\2\2\u0080\u0081\5\b\5\2"+
+		"\u0081\u0082\7\'\2\2\u0082\u0083\7\4\2\2\u0083\u0084\7(\2\2\u0084\u0085"+
 		"\7\3\2\2\u0085\u008e\3\2\2\2\u0086\u0087\5\b\5\2\u0087\u0088\7\'\2\2\u0088"+
 		"\u0089\7\5\2\2\u0089\u008a\7(\2\2\u008a\u008b\7\6\2\2\u008b\u008c\7\3"+
 		"\2\2\u008c\u008e\3\2\2\2\u008d|\3\2\2\2\u008d\u0080\3\2\2\2\u008d\u0086"+

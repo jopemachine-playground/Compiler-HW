@@ -3,10 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="9483250e-d898-4db1-a8c6-c968ba9c1421" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/Test.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test.j" beforeDir="false" afterPath="$PROJECT_DIR$/Test.j" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_3/BytecodeGenListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_3/BytecodeGenListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_3/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compiler-HW/cnu/compiler19/hw5_3/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniC.interp" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniC.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniC.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniC.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniCBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniCBaseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniCBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniCBaseVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniCLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniCLexer.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniCLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniCLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniCLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniCLexer.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniCListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniCListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniCParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniCParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniCVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/cnu/compiler19/hw5_3/MiniCVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/BytecodeGenListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/BytecodeGenListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniC.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniC.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniC.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/MiniC.interp" afterDir="false" />
@@ -22,7 +31,6 @@
       <change beforePath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cnu/compiler19/hw5_3/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,6 +68,11 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="$PROJECT_DIR$/src/cnu/compiler19/hw2/MiniC.g4::/auto-gen" value="false" />
@@ -79,13 +92,6 @@
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Compiler-HW\src\cnu\compiler19\hw5" />
-      <recent name="C:\Compiler-HW\lib" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Compiler-HW\src\cnu\compiler19\hw5_3" />
       <recent name="C:\Compiler-HW\src\cnu\compiler19\hw5_2" />
@@ -93,18 +99,13 @@
       <recent name="C:\Compiler-HW\src" />
       <recent name="C:\Compiler-HW\src\cnu\compiler19\hw3\TestFile" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Compiler-HW\src\cnu\compiler19\hw5" />
+      <recent name="C:\Compiler-HW\lib" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Translator (1)">
     <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -175,6 +176,18 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -243,7 +256,9 @@
       <workItem from="1574900085514" duration="5015000" />
       <workItem from="1574938630787" duration="4753000" />
       <workItem from="1575414606816" duration="10000" />
-      <workItem from="1575771503465" duration="2712000" />
+      <workItem from="1575771503465" duration="3456000" />
+      <workItem from="1575784784708" duration="5000" />
+      <workItem from="1575799255422" duration="1839000" />
     </task>
     <servers />
   </component>
@@ -262,6 +277,40 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1877" height="233" key="GridCell.Tab.0.bottom" timestamp="1575801166681">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="233" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575801166681" />
+    <state width="1877" height="233" key="GridCell.Tab.0.center" timestamp="1575801166681">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="233" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575801166681" />
+    <state width="1877" height="233" key="GridCell.Tab.0.left" timestamp="1575801166681">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="233" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575801166681" />
+    <state width="1877" height="233" key="GridCell.Tab.0.right" timestamp="1575801166681">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="233" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575801166681" />
+    <state width="1877" height="347" key="GridCell.Tab.1.bottom" timestamp="1575801097245">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575801097245" />
+    <state width="1877" height="347" key="GridCell.Tab.1.center" timestamp="1575801097245">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="347" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575801097245" />
+    <state width="1877" height="347" key="GridCell.Tab.1.left" timestamp="1575801097245">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="347" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575801097245" />
+    <state width="1877" height="347" key="GridCell.Tab.1.right" timestamp="1575801097245">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575801097245" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

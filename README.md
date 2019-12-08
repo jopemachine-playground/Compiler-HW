@@ -40,3 +40,5 @@ MiniC 를 JVM 어셈블리어로 컴파일해주는 BytecodeGenListener.java 를
 
 * <b> Assign 05-3</b>  
 
+과제 05-2의 확장 
+

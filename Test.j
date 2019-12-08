@@ -9,7 +9,7 @@ return
 .method public static main([Ljava/lang/String;)V
 .limit stack 32
 .limit locals 32
-sipush 2222 
-dstore_1
+sipush 98
+castore_1
 return
 .end method

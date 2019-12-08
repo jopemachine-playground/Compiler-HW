@@ -1,11 +1,6 @@
 package cnu.compiler19.hw5_3;
 
-import cnu.compiler19.hw5_3.MiniCBaseListener;
-import cnu.compiler19.hw5_3.MiniCParser;
-import cnu.compiler19.hw5_3.SymbolTable;
-import javafx.beans.binding.DoubleExpression;
-import org.antlr.v4.runtime.tree.ParseTreeListener;
-import org.antlr.v4.runtime.tree.ParseTreeProperty;
+import org.antlr.v4.runtime.tree.*;
 
 import cnu.compiler19.hw5_3.MiniCParser.ParamsContext;
 
@@ -81,6 +76,9 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 					break;
 				case "double":
 					declType = Type.DOUBLE;
+					break;
+				case "char":
+					declType = Type.CHAR;
 					break;
 			}
 
@@ -253,6 +251,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 			varDecl += "putfield " + varName + "\n";
 			// v. initialization => Later! skip now..:
 		}
+
 		newTexts.put(ctx, varDecl);
 	}
 
@@ -435,7 +434,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		String expr = "";
 
 //		System.out.println(ctx.getChild(0).getText());
-		System.out.println(ctx.getText());
+//		System.out.println(ctx.getText());
 
 		if(ctx.getChildCount() <= 0) {
 			newTexts.put(ctx, "");
@@ -459,10 +458,16 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 			else if (ctx.LITERAL() != null) {
 
 //				String vId = symbolTable.getVarId(ctx.getChild(1).getText());
-				String index = ctx.LITERAL().getText();
+				String literal = ctx.LITERAL().getText();
 
-				// push index
-				expr += "sipush " + index + " \n";
+				// char
+				if(literal.startsWith("'") && literal.endsWith("'")){
+					int charValue = literal.charAt(1);
+					expr += "sipush " + charValue + "\n";
+				}
+				else {
+					expr += "sipush " + literal + " \n";
+				}
 			}
 		}
 
