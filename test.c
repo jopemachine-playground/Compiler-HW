@@ -1,7 +1,7 @@
 void main () {
+    int a;
+    a = 3;
+    int b;
+    b = 1;
 
-	char a;
-	a = 'b';
-	int b;
-	b = 3;
 }
