@@ -1,8 +1,9 @@
 // Generated from C:/Compiler-HW/src/cnu/compiler19/hw5_3\MiniC.g4 by ANTLR 4.7.2
 package cnu.compiler19.hw5_3;
 
-import org.antlr.v4.runtime.tree.ParseTreeVisitor;
+package generated;
 
+import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
  * This interface defines a complete generic visitor for a parse tree produced

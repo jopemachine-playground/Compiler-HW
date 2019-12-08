@@ -94,11 +94,15 @@ IDENT  : [a-zA-Z_]
         |  [0-9]
         )*;
 
-LITERAL:   DecimalConstant     |   OctalConstant     |   HexadecimalConstant     ;
+LITERAL:
+    DecimalConstant     |
+    OctalConstant     |
+    HexadecimalConstant    |
+    CharConstant;
 
 DecimalConstant
     :   '0'
-	|   [1-9] [0-9]*
+	|   [1-9] [0-9.]*
     ;
 
 OctalConstant
@@ -108,6 +112,9 @@ OctalConstant
 HexadecimalConstant
     :   '0' [xX] [0-9a-fA-F] +
     ;
+
+CharConstant
+    : [a-z];
 
 WS  :   (   ' '
         |   '\t'

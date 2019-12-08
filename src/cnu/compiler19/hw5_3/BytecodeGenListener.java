@@ -61,14 +61,31 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 
 	@Override
 	public void enterLocal_decl(MiniCParser.Local_declContext ctx) {
+
+		String declTypeStr = ctx.getChild(0).getText();
+		Type declType = null;
+
 		if (isArrayDecl(ctx)) {
 			symbolTable.putLocalVar(getLocalVarName(ctx), Type.INTARRAY);
 		}
 		else if (isDeclWithInit(ctx)) {
+
 			symbolTable.putLocalVarWithInitVal(getLocalVarName(ctx), Type.INT, initVal(ctx));
+
 		}
 		else  { // simple decl
-			symbolTable.putLocalVar(getLocalVarName(ctx), Type.INT);
+
+			switch (declTypeStr){
+				case "int":
+					declType = Type.INT;
+					break;
+				case "double":
+					declType = Type.DOUBLE;
+					break;
+			}
+
+			symbolTable.putLocalVar(getLocalVarName(ctx), declType);
+
 		}
 	}
 
@@ -247,27 +264,32 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 
 		if (isDeclWithInit(ctx)) {
 
+			String rhsValue = ctx.getChild(3).getText();
+
 			String typePrev = null;
 
 			// 변수로 초기화 할 경우
-			String var = symbolTable.getVarId(ctx.getChild(3).getText());
+			String var = symbolTable.getVarId(rhsValue);
 
 			if(var != null){
-				typePrev = SymbolTable.typeToPrev.get(symbolTable.getVarType(ctx.getChild(3).getText()));
+				typePrev = SymbolTable.typeToPrev.get(symbolTable.getVarType(rhsValue));
 				varDecl += "load_" + var + "\n";
 			}
 			else {
 				// 정수 값으로 초기화 할 경우
-				try {
-					typePrev = "i";
-					// 상수 값이 실수인 경우 NumberFormatException을 낸다
-					Integer.parseInt(ctx.getChild(3).getText());
-					varDecl += "ldc " + ctx.getChild(3).getText() + "\n";
-				}
-				// 실수로 초기화 할 경우
-				catch (NumberFormatException e) {
-					typePrev = "d";
-					varDecl += "ldc " + ctx.getChild(3).getText() + "\n";
+				String declType = ctx.getChild(0).getText();
+
+				switch (declType){
+					case "int":
+					    typePrev = "i";
+						varDecl += "ldc " + rhsValue + "\n";
+						break;
+					case "char":
+						break;
+					case "double":
+					    typePrev = "d";
+						varDecl += "ldc " + rhsValue + "\n";
+						break;
 				}
 			}
 
@@ -284,7 +306,10 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 					+  "newarray	" + arrType + "\n"
 			 		+  "astore_" + vId;
 		}
+		// 선언만 하는 경우
+		else {
 
+		}
 
 		newTexts.put(ctx, varDecl);
 	}
@@ -409,6 +434,9 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 	public void exitExpr(MiniCParser.ExprContext ctx) {
 		String expr = "";
 
+//		System.out.println(ctx.getChild(0).getText());
+		System.out.println(ctx.getText());
+
 		if(ctx.getChildCount() <= 0) {
 			newTexts.put(ctx, "");
 			return;
@@ -452,7 +480,8 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 
 			else if(ctx.getChild(1).getText().equals("=")) {
 
-				String typePrev = SymbolTable.typeToPrev.get(ctx.getChild(2).getText());
+				Type type = symbolTable.getVarType(ctx.getChild(0).getText());
+				String typePrev = typeToPrev.get(type);
 
 				// IDENT '=' expr
 				if(typePrev != null) {
@@ -488,7 +517,6 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 					"bipush    " + value + "\n" +
 					"iastore" + "\n";
 		}
-
 
 		newTexts.put(ctx, expr);
 	}
