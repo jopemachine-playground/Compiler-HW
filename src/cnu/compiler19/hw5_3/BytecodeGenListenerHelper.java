@@ -64,10 +64,10 @@ public class BytecodeGenListenerHelper {
 
 	// <information extraction>
 	static String getStackSize(Fun_declContext ctx) {
-		return "32";
+		return "320";
 	}
 	static String getLocalVarSize(Fun_declContext ctx) {
-		return "32";
+		return "320";
 	}
 
 

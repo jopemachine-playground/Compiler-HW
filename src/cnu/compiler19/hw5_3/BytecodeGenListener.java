@@ -12,6 +12,8 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeListener {
 	ParseTreeProperty<String> newTexts = new ParseTreeProperty<String>();
@@ -248,8 +250,19 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		String varDecl = "";
 
 		if (isDeclWithInit(ctx)) {
-			varDecl += "putfield " + varName + "\n";
-			// v. initialization => Later! skip now..:
+			String declType = ctx.getChild(0).getText();
+			String initValue = ctx.getChild(3).getText();
+			String prevDeclType = "";
+
+			switch (declType){
+				case "int":
+					prevDeclType = "ldc ";
+			}
+			varDecl += prevDeclType + initValue + "\n";
+			varDecl += "putstatic " + varName + "\n";
+		}
+		else {
+
 		}
 
 		newTexts.put(ctx, varDecl);
@@ -301,7 +314,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 			String arrType = ctx.getChild(0).getText();
 			String arrSize = ctx.getChild(3).getText();
 
-			varDecl += "sipush	" + arrSize  + "\n"
+			varDecl += "sipush    " + arrSize  + "\n"
 					+  "newarray	" + arrType + "\n"
 			 		+  "astore_" + vId;
 		}
@@ -432,9 +445,6 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 	@Override
 	public void exitExpr(MiniCParser.ExprContext ctx) {
 		String expr = "";
-
-//		System.out.println(ctx.getChild(0).getText());
-//		System.out.println(ctx.getText());
 
 		if(ctx.getChildCount() <= 0) {
 			newTexts.put(ctx, "");
@@ -706,10 +716,47 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 		String fname = getFunName(ctx);
 
 		if (fname.equals("_print")) {
-			expr = "getstatic java/lang/System/out Ljava/io/PrintStream;" + "\n"
-					+ newTexts.get(ctx.args())
-					+ "invokevirtual " + symbolTable.getFunSpecStr("_print") + "\n";
-		} else {
+		    String arg = ctx.getText();
+
+		    // 배열의 길이를 나타내는 length 가짜 필드를 사용하는 경우
+			Pattern isLengthKeyword = Pattern.compile("(.*)[.]length");
+			Matcher matcher = isLengthKeyword.matcher(arg);
+
+		    if(matcher.find()){
+				System.out.println(matcher.group(1));
+			}
+		    else{
+				String args = ctx.args().getText();
+
+				// 배열 opt를 포함하는 경우
+				if(args.contains("[")){
+					String arrName = args.split("\\[")[0];
+					String arrIndex = args.split("\\[")[1].split("\\]")[0];
+
+					Type arrType = symbolTable.getVarType(arrName);
+
+					String loadByArrType = "";
+
+					switch (arrType){
+						case INTARRAY:
+							loadByArrType = "iaload";
+							break;
+					}
+
+					expr = "getstatic java/lang/System/out Ljava/io/PrintStream;" + "\n"
+							+ "aload_" + symbolTable.getVarId(arrName) + "\n"
+							+ "ldc	" + arrIndex + "\n"
+							+ loadByArrType + "\n"
+							+ "invokevirtual " + symbolTable.getFunSpecStr("_print") + "\n";
+				}
+				else{
+					expr = "getstatic java/lang/System/out Ljava/io/PrintStream;" + "\n"
+							+ newTexts.get(ctx.args())
+							+ "invokevirtual " + symbolTable.getFunSpecStr("_print") + "\n";
+				}
+			}
+		}
+		else {
 			expr = newTexts.get(ctx.args())
 					+ "invokestatic " + getCurrentClassName()+ "/" + symbolTable.getFunSpecStr(fname) + "\n";
 		}

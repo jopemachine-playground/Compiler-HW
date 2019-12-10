@@ -1,7 +1,6 @@
 void main () {
-    int a;
-    a = 3;
-    int b;
-    b = 1;
-
+    int a[10];
+    a[1] = 2;
+    a[4] = 3;
+    _print(a[1]);
 }
