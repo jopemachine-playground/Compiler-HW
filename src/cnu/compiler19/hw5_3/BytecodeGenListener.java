@@ -297,6 +297,8 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 						varDecl += "ldc " + rhsValue + "\n";
 						break;
 					case "char":
+						typePrev = "c";
+						varDecl += "ldc " + rhsValue + "\n";
 						break;
 					case "double":
 					    typePrev = "d";
@@ -474,6 +476,10 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 				if(literal.startsWith("'") && literal.endsWith("'")){
 					int charValue = literal.charAt(1);
 					expr += "sipush " + charValue + "\n";
+				}
+				// double
+				else if(literal.contains(".")){
+					expr += "ldc2_w    " + literal + " \n";
 				}
 				else {
 					expr += "sipush " + literal + " \n";
@@ -715,7 +721,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 	private String handleFunCall(MiniCParser.ExprContext ctx, String expr) {
 		String fname = getFunName(ctx);
 
-		if (fname.equals("_print")) {
+		if (fname.equals("_print") || fname.equals("_printChar") || fname.equals("_printDouble")) {
 		    String arg = ctx.getText();
 
 		    // 배열의 길이를 나타내는 length 가짜 필드를 사용하는 경우
@@ -747,12 +753,12 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 							+ "aload_" + symbolTable.getVarId(arrName) + "\n"
 							+ "ldc	" + arrIndex + "\n"
 							+ loadByArrType + "\n"
-							+ "invokevirtual " + symbolTable.getFunSpecStr("_print") + "\n";
+							+ "invokevirtual " + symbolTable.getFunSpecStr(fname) + "\n";
 				}
 				else{
 					expr = "getstatic java/lang/System/out Ljava/io/PrintStream;" + "\n"
 							+ newTexts.get(ctx.args())
-							+ "invokevirtual " + symbolTable.getFunSpecStr("_print") + "\n";
+							+ "invokevirtual " + symbolTable.getFunSpecStr(fname) + "\n";
 				}
 			}
 		}

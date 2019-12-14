@@ -22,7 +22,7 @@ public class SymbolTable {
 
 	static {
 		typeToPrev.put(Type.INT, "i");
-		typeToPrev.put(Type.CHAR, "ca");
+		typeToPrev.put(Type.CHAR, "i");
 		typeToPrev.put(Type.DOUBLE, "d");
 		typeToPrev.put(Type.FLOAT, "f");
 		typeToPrev.put(Type.LONG, "l");
@@ -133,6 +133,8 @@ public class SymbolTable {
 	
 	private void initFunTable() {
 		_fsymtable.put("_print", new FInfo("java/io/PrintStream/println(I)V"));
+		_fsymtable.put("_printChar", new FInfo("java/io/PrintStream/println(C)V"));
+		_fsymtable.put("_printDouble", new FInfo("java/io/PrintStream/println(D)V"));
 		_fsymtable.put("main", new FInfo("main([Ljava/lang/String;)V"));
 	}
 	

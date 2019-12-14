@@ -122,7 +122,7 @@ HexadecimalConstant
     ;
 
 CharConstant
-    : '\''[a-z]'\'';
+    : '\''[0-9a-zA-F]'\'';
 
 WS  :   (   ' '
         |   '\t'
