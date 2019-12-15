@@ -106,7 +106,8 @@ LITERAL:
     DecimalConstant     |
     OctalConstant     |
     HexadecimalConstant    |
-    CharConstant;
+    CharConstant    |
+    FloatConstant;
 
 DecimalConstant
     :   '0'
@@ -123,6 +124,9 @@ HexadecimalConstant
 
 CharConstant
     : '\''[0-9a-zA-F]'\'';
+
+FloatConstant
+    : [0-9.]*'f';
 
 WS  :   (   ' '
         |   '\t'

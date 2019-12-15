@@ -2,12 +2,12 @@ package cnu.compiler19.hw5_3;
 
 public class Test {
 
-    static int a;
-
     public static void main(String[] args){
 
-        a = 3;
-        System.out.println(a);
+        float f = 2.32f;
+        float f2 = 2.44f;
+        System.out.println(f + f2);
+
 
     }
 

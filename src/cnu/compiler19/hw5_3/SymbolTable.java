@@ -135,7 +135,9 @@ public class SymbolTable {
 		_fsymtable.put("_print", new FInfo("java/io/PrintStream/println(I)V"));
 		_fsymtable.put("_printChar", new FInfo("java/io/PrintStream/println(C)V"));
 		_fsymtable.put("_printDouble", new FInfo("java/io/PrintStream/println(D)V"));
+		_fsymtable.put("_printFloat", new FInfo("java/io/PrintStream/println(F)V"));
 		_fsymtable.put("main", new FInfo("main([Ljava/lang/String;)V"));
+
 	}
 	
 	public String getFunSpecStr(String fname) {		

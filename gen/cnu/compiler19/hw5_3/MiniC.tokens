@@ -40,7 +40,8 @@ DecimalConstant=39
 OctalConstant=40
 HexadecimalConstant=41
 CharConstant=42
-WS=43
+FloatConstant=43
+WS=44
 ';'=1
 '='=2
 '['=3

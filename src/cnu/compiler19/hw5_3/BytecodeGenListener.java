@@ -82,6 +82,9 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 				case "char":
 					declType = Type.CHAR;
 					break;
+				case "float":
+					declType = Type.FLOAT;
+					break;
 			}
 
 			symbolTable.putLocalVar(getLocalVarName(ctx), declType);
@@ -304,6 +307,9 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 					    typePrev = "d";
 						varDecl += "ldc " + rhsValue + "\n";
 						break;
+					case "float":
+						typePrev = "f";
+						varDecl += "ldc " + rhsValue + "\n";
 				}
 			}
 
@@ -477,6 +483,10 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 					int charValue = literal.charAt(1);
 					expr += "sipush " + charValue + "\n";
 				}
+				// float
+				else if(literal.endsWith("f")){
+					expr += "ldc    " + literal.substring(0, literal.length() - 1) + " \n";
+				}
 				// double
 				else if(literal.contains(".")){
 					expr += "ldc2_w    " + literal + " \n";
@@ -592,6 +602,12 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 
 		if(firstOperandType == Type.DOUBLE) {
 			typePrev = "d";
+		}
+		else if(firstOperandType == Type.INT){
+			typePrev = "i";
+		}
+		else if(firstOperandType == Type.FLOAT){
+			typePrev = "f";
 		}
 		else {
 			String secondOperand = ctx.getChild(2).getText();
@@ -721,7 +737,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 	private String handleFunCall(MiniCParser.ExprContext ctx, String expr) {
 		String fname = getFunName(ctx);
 
-		if (fname.equals("_print") || fname.equals("_printChar") || fname.equals("_printDouble")) {
+		if (fname.equals("_print") || fname.equals("_printChar") || fname.equals("_printDouble") || fname.equals("_printFloat")) {
 		    String arg = ctx.getText();
 
 		    // 배열의 길이를 나타내는 length 가짜 필드를 사용하는 경우

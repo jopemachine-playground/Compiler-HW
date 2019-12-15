@@ -22,7 +22,7 @@ public class MiniCParser extends Parser {
 		T__17=18, T__18=19, VOID=20, INT=21, CHAR=22, SHORT=23, LONG=24, FLOAT=25, 
 		DOUBLE=26, WHILE=27, IF=28, ELSE=29, RETURN=30, OR=31, AND=32, LE=33, 
 		GE=34, EQ=35, NE=36, IDENT=37, LITERAL=38, DecimalConstant=39, OctalConstant=40, 
-		HexadecimalConstant=41, CharConstant=42, WS=43;
+		HexadecimalConstant=41, CharConstant=42, FloatConstant=43, WS=44;
 	public static final int
 		RULE_program = 0, RULE_decl = 1, RULE_var_decl = 2, RULE_type_spec = 3, 
 		RULE_fun_decl = 4, RULE_params = 5, RULE_param = 6, RULE_stmt = 7, RULE_expr_stmt = 8, 
@@ -53,7 +53,8 @@ public class MiniCParser extends Parser {
 			null, null, null, null, null, null, null, null, "VOID", "INT", "CHAR", 
 			"SHORT", "LONG", "FLOAT", "DOUBLE", "WHILE", "IF", "ELSE", "RETURN", 
 			"OR", "AND", "LE", "GE", "EQ", "NE", "IDENT", "LITERAL", "DecimalConstant", 
-			"OctalConstant", "HexadecimalConstant", "CharConstant", "WS"
+			"OctalConstant", "HexadecimalConstant", "CharConstant", "FloatConstant", 
+			"WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -1603,7 +1604,7 @@ public class MiniCParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3-\u0101\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3.\u0101\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\3\2\6\2$\n"+
 		"\2\r\2\16\2%\3\3\3\3\5\3*\n\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4"+
